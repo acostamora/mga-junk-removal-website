@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junk Removal Service - MGA JunkRemoval</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .hero {
+            background-color: #2d3436; /* Dark gray from logo */
+            background-image: linear-gradient(rgba(45, 52, 54, 0.7), rgba(45, 52, 54, 0.7)), url('truck and trailer.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #2d3436; /* Dark gray */
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+        /* Custom styles for masonry grid layout */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem; /* Equivalent to Tailwind's gap-6 */
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            display: inline-block; /* Important for the masonry effect */
+            width: 100%;
+            break-inside: avoid;
+            margin-bottom: 1.5rem; /* Equivalent to Tailwind's mb-6 */
+        }
+
+        /* Styles for the dynamic photo background */
+        #about {
+            position: relative;
+            overflow: hidden;
+            color: white; /* Ensure text is readable on the dark background */
+        }
+        #photo-gallery-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        #photo-gallery-background img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        #about-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        #about-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md rounded-b-xl py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Replaced the text with the company logo image -->
+            <a href="#" class="text-2xl font-bold text-gray-900">
+                <img src="JUNK REMOVAL SIN FONDO.jpg" alt="MGA JunkRemoval Logo" class="h-10">
+            </a>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="nav-links" class="nav-menu md:flex md:items-center space-x-0 md:space-x-8 mt-4 md:mt-0">
+                <a href="#services" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Our Services</a>
+                <a href="#about" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">About Us</a>
+                <a href="#reviews" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Reviews</a>
+                <a href="#contact" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Contact Us</a>
+                <button id="quoteButtonNav" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-2 px-4 rounded-full shadow-md transition duration-300 mt-2 md:mt-0">
+                    Free Quote
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero text-white text-center py-20 md:py-32 rounded-b-xl">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">MGA JunkRemoval</h1>
+            <p class="text-lg md:text-2xl mb-8 font-light">
+                It's time to reclaim your space. We make it easy.
+            </p>
+            <button id="quoteButton" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                Get a Free Quote!
+            </button>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
+            <!-- Grid container for services -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                <!-- Service Card 1: Furniture and Appliance Removal -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Furniture & Appliance Removal.jpg" alt="Furniture and Appliance Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Furniture & Appliance Removal</h3>
+                    <p class="text-gray-600">This service involves the removal of large and bulky furniture like couches, beds, tables, and chairs, as well as major appliances like refrigerators, washing machines, and stoves.</p>
+                </div>
+                <!-- Service Card 2: Garage, Basement, Storage Units and Attic Cleanouts -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" alt="Garage, Basement & Attic Cleanouts" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Garage, Basement & Attic Cleanouts</h3>
+                    <p class="text-gray-600">A comprehensive service to clear out cluttered spaces like garages, basements, or attics. This may involve removing a mixture of general items, small furniture, and old tools.</p>
+                </div>
+                <!-- Service Card 3: Construction Debris and Rubble Removal -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Construction Debris Removal.jpg" alt="Construction Debris Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Construction Debris Removal</h3>
+                    <p class="text-gray-600">Collection and disposal of construction materials such as wood, drywall, concrete, tiles, and old carpeting resulting from renovation or demolition projects.</p>
+                </div>
+                <!-- Service Card 4: Yard Waste and Green Debris Removal -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Yard Waste & Green Debris Removal.jpg" alt="Yard Waste and Green Debris Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Yard Waste & Green Debris Removal</h3>
+                    <p class="text-gray-600">Removal of branches, leaves, grass clippings, dirt, rocks, lumber, and other yard or landscaping waste.</p>
+                </div>
+                <!-- Service Card 5: Electronics Waste (E-Waste) Disposal -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Electronics Waste (E-Waste) Disposal.jpg" alt="Electronics Waste (E-Waste) Disposal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Electronics Waste (E-Waste) Disposal</h3>
+                    <p class="text-gray-600">Responsible disposal of old or broken electronic equipment such as computers, printers, TVs, and phones. We ensure these items are properly recycled.</p>
+                </div>
+                <!-- Service Card 6: Special/Hazardous Item Removal -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Special Hazardous Items Removal.jpg" alt="Special/Hazardous Item Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Special/Hazardous Item Removal</h3>
+                    <p class="text-gray-600">Some items require special handling due to their composition or hazardous nature. This service is available with additional fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "About Us" Section with Dynamic Photo Background -->
+    <section id="about" class="py-16 md:py-24 px-4">
+        <!-- Photo Gallery Background -->
+        <div id="photo-gallery-background">
+            <img src="2.jpg" alt="Junk removal work 1" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="4.jpg" alt="Junk removal work 2" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="1.jpg" alt="Junk removal work 3" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="3.jpg" alt="Junk removal work 4" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+        </div>
+        <!-- Dark Overlay -->
+        <div id="about-overlay"></div>
+        <!-- About Us Content -->
+        <div id="about-content" class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
+            <p class="text-lg mb-6">
+                We are a family-owned business committed to providing reliable and efficient junk removal services. With years of experience, our team specializes in cleaning out and decluttering spaces, leaving your property stress-free and spotless.
+            </p>
+            <p class="text-lg">
+                We take pride in our work and strive to deliver exceptional customer service on every project. Let us help you reclaim your space!
+            </p>
+        </div>
+    </section>
+
+    <!-- Reviews Section (Masonry Grid) -->
+    <section id="reviews" class="bg-gray-100 py-16 md:py-24 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 text-lime-600">What Our Customers Say</h2>
+            <p class="text-lg text-gray-600 text-center mb-12">
+                Don't just take our word for it - see what Houston residents are saying about our service.
+            </p>
+
+            <!-- Masonry Grid Container -->
+            <div id="reviews-grid" class="masonry-grid">
+                <!-- Reviews will be dynamically inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 px-4 bg-gray-800 text-white rounded-t-xl">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us Today</h2>
+            <p class="text-lg mb-8">
+                Call us for a free quote. We're ready to help you.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                <a href="tel:346-803-8094" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                    Call: 346-803-8094
+                </a>
+                <a href="mailto:acosta.mora@gmail.com" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                    Send an Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form Modal -->
+    <div id="contactModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="text-2xl font-bold mb-4 text-center">Get Your Free Quote</h3>
+            <form id="contactForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 font-semibold mb-2">What do you need us to remove?</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                        Send Quote
+                    </button>
+                </div>
+            </form>
+            <p id="formStatus" class="mt-4 text-center text-sm font-semibold"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-8 mt-12 rounded-t-xl">
+        <div class="container mx-auto px-4">
+            <div class="mb-4">
+                <h3 class="text-lg font-bold mb-2">Follow Us!</h3>
+                <div class="flex justify-center space-x-6">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/mgajunkremoval/" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2.541c.883 0 1.6.72 1.6 1.6s-.717 1.6-1.6 1.6c-.883 0-1.6-.72-1.6-1.6s.717-1.6 1.6-1.6zM22 6.541c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM19.4 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-10.4 4.8c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm-1.2 1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM11.6 19.4c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm1.2-1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM18.8 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-5.6-3.2c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm3.2 0c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-6.4 0c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zM12 9.2c-1.54 0-2.8 1.26-2.8 2.8s1.26 2.8 2.8 2.8 2.8-1.26 2.8-2.8-1.26-2.8-2.8-2.8zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zM12 2.4c-5.289 0-9.6 4.311-9.6 9.6s4.311 9.6 9.6 9.6 9.6-4.311 9.6-9.6-4.311-9.6-9.6-9.6z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@mgajunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12.5 0C12.5 0 12 1.5 12 2.5V12.7C12 13.5 12.5 14 13.5 14H15.8C16.6 14 17 13.5 17 12.7V6C17 5.2 16.5 4.5 15.5 4.5H14V0H12.5ZM6.5 10C6.5 10 7.5 11.5 7.5 12.5V20.7C7.5 21.5 8 22 9 22H11.3C12.1 22 12.5 21.5 12.5 20.7V14C12.5 13.2 12 12.5 11 12.5H9.5V10H6.5Z"></path>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/MGAJunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.35c0 .732.593 1.325 1.325 1.325h11.455v-9.293h-3.11v-3.627h3.11v-2.671c0-3.08 1.88-4.754 4.624-4.754 1.325 0 2.464.099 2.796.143v3.239h-1.921c-1.503 0-1.802.714-1.802 1.764v2.329h3.628l-.472 3.627h-3.156v9.293h6.115c.732 0 1.325-.593 1.325-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <p class="text-sm mt-4">&copy; 2024 MGA JunkRemoval. All rights reserved.</p>
+            <p id="userIdDisplay" class="text-xs text-gray-500 mt-2">User ID: N/A</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Wrap the code in a DOMContentLoaded listener to ensure the page is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Global variables for Firebase services and user data
+            let db;
+            let auth;
+            let userId = null;
+
+            // --- LOCAL FIX: Use mock data for local development ---
+            let appId;
+            let firebaseConfig;
+            let initialAuthToken;
+
+            try {
+                // Check if the variables are defined by the development environment
+                appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+                firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+                initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+            } catch (e) {
+                // Handle JSON parsing errors or undefined variables gracefully
+                console.error("Error with environment variables:", e);
+                // Set to null to trigger the local fallback
+                firebaseConfig = null;
+            }
+
+            // If environment variables are not available, use mock data
+            if (!firebaseConfig) {
+                console.log("Running in local development mode. Firebase features are disabled.");
+                // Use a mock configuration to prevent script errors
+                firebaseConfig = {
+                    apiKey: "mock_api_key",
+                    authDomain: "mock-project.firebaseapp.com",
+                    projectId: "mock-project",
+                    storageBucket: "mock-project.appspot.com",
+                    messagingSenderId: "123456789",
+                    appId: "1:123456789:web:abcdef"
+                };
+            }
+            // --- END OF LOCAL FIX ---
+
+            // Get DOM elements
+            const quoteButton = document.getElementById('quoteButton');
+            const quoteButtonNav = document.getElementById('quoteButtonNav');
+            const contactModal = document.getElementById('contactModal');
+            const closeButton = document.querySelector('.close-button');
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const userIdDisplay = document.getElementById('userIdDisplay');
+            const menuButton = document.getElementById('menu-button');
+            const navLinks = document.getElementById('nav-links');
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            setLogLevel('Debug'); // Enable debug logging for Firestore
+
+            // Handle user authentication
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    userId = user.uid;
+                    userIdDisplay.textContent = `User ID: ${userId}`;
+                } else {
+                    try {
+                        // Use a fallback to anonymous sign-in if the custom token is not available
+                        if (initialAuthToken) {
+                            await signInWithCustomToken(auth, initialAuthToken);
+                        } else {
+                            await signInAnonymously(auth);
+                        }
+                    } catch (error) {
+                        console.error("Firebase auth error:", error);
+                    }
+                }
+            });
+
+            // Toggle mobile menu visibility
+            menuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Show modal when the buttons are clicked
+            quoteButton.addEventListener('click', () => {
+                contactModal.classList.remove('hidden');
+            });
+            quoteButtonNav.addEventListener('click', () => {
+                contactModal.classList.remove('hidden');
+                navLinks.classList.remove('active'); // Close mobile menu if open
+            });
+
+            // Close modal when the close button is clicked
+            closeButton.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+            });
+
+            // Close modal when clicked outside of it
+            window.addEventListener('click', (event) => {
+                if (event.target === contactModal) {
+                    contactModal.classList.add('hidden');
+                }
+            });
+
+            // Handle form submission and save to Firestore
+            contactForm.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent default submission
+
+                if (!userId) {
+                    formStatus.textContent = "Authentication is not ready. Please try again in a moment.";
+                    formStatus.classList.remove('text-green-500');
+                    formStatus.classList.add('text-red-500');
+                    return;
+                }
+
+                // Show loading message
+                formStatus.textContent = "Sending your request...";
+                formStatus.classList.remove('text-red-500', 'text-green-500');
+                formStatus.classList.add('text-gray-500');
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
+
+                try {
+                    // Get a reference to the 'quotes' collection for this user and app
+                    const quotesCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/quotes`);
+
+                    // Add a new document to the collection
+                    await addDoc(quotesCollectionRef, {
+                        name: name,
+                        phone: phone,
+                        message: message,
+                        timestamp: new Date()
+                    });
+
+                    // Update status on success
+                    formStatus.textContent = `Thank you for your message, ${name}! We will get back to you shortly.`;
+                    formStatus.classList.remove('text-red-500', 'text-gray-500');
+                    formStatus.classList.add('text-green-500');
+
+                    // Clear the form
+                    contactForm.reset();
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                    formStatus.textContent = "There was an error sending your message. Please try again.";
+                    formStatus.classList.remove('text-green-500', 'text-gray-500');
+                    formStatus.classList.add('text-red-500');
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviews = [
+                { text: "On time, very professional, great personality, will definitely use again!", author: "Carolyn Clarkson", location: "Katy, TX", stars: 5 },
+                { text: "Extremely happy with the work performed clearing out two storage units for a reasonable price. They took the stress out of a stressful task and I recommend them highly.", author: "Pat Regnier", location: "Houston, TX", stars: 5 },
+                { text: "Punctual. Price quoted was price of the items removed. Very efficient, friendly.", author: "Cynthia Groves", location: "Cypress, TX", stars: 5 },
+                { text: "I needed to have removed wall oven.Picked up and Leo was so kind.It's hard to believe that someone is really kind in this day and age.But he helped out a senior and I really appreciate it. Our contractor that did the work would not take it. Thank you so so much.Leo definitely refer to you", author: "Darcy Truehan", location: "Sugar Land, TX", stars: 5 },
+                { text: "Very professional, on time, definitely I will use their services in the future", author: "Nicholas Abdouche", location: "Houston, TX", stars: 5 },
+                { text: "Great experience. Would highly reccomend. Friendly, courteous and very professional. They showed up at the scheduled time and were very careful when removing items", author: "Jonathan Thomas", location: "Pearland, TX", stars: 5 },
+                { text: "Very good service and did a fantastic job in a very timely manner. Would give 6 stars if I could.", author: "Hanne STILWELL", location: "League City, TX", stars: 5 },
+                { text: "nice person, very good service, highly recommended.", author: "Chao Tsang Huang", location: "Houston, TX", stars: 5 }
+            ];
+
+            const reviewsGrid = document.getElementById('reviews-grid');
+
+            // Function to render star icons
+            function renderStars(count) {
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += `<span class="text-yellow-400 text-2xl">★</span>`;
+                }
+                return stars;
+            }
+
+            // Function to render reviews in the masonry grid
+            function renderReviews() {
+                reviewsGrid.innerHTML = '';
+                reviews.forEach(review => {
+                    // Changed p-6 to p-5 to make the cards slightly smaller
+                    const reviewCard = document.createElement('div');
+                    reviewCard.className = 'masonry-item bg-white rounded-xl shadow-md p-5 transform hover:scale-103 hover:shadow-lg transition duration-300 flex flex-col justify-between';
+                    reviewCard.innerHTML = `
+                        <div>
+                            <div class="flex items-center justify-center mb-4">
+                                <div class="flex">${renderStars(review.stars)}</div>
+                            </div>
+                            <p class="italic text-gray-700 mb-4 flex-grow">"${review.text}"</p>
+                        </div>
+                        <div>
+                            <div class="text-gray-900 font-semibold">- ${review.author}</div>
+                            <div class="text-gray-500 text-sm">${review.location}</div>
+                        </div>
+                    `;
+                    reviewsGrid.appendChild(reviewCard);
+                });
+            }
+
+            // Initial render
+            renderReviews();
+
+            // Photo gallery logic for the About Us section
+            const galleryImages = document.querySelectorAll('#photo-gallery-background img');
+            let currentImageIndex = 0;
+
+            function changeImage() {
+                // Hide the current image
+                galleryImages[currentImageIndex].style.opacity = '0';
+
+                // Increment index, looping back to 0 if at the end
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+
+                // Show the next image
+                galleryImages[currentImageIndex].style.opacity = '1';
+            }
+
+            // Initially show the first image
+            if (galleryImages.length > 0) {
+                galleryImages[0].style.opacity = '1';
+            }
+
+            // Change image every 5 seconds
+            setInterval(changeImage, 5000);
+        });
+    </script>
+</body>
+</html>
