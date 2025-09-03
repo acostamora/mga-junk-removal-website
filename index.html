@@ -287,7 +287,38 @@
             let db;
             let auth;
             let userId = null;
-            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+            // --- LOCAL FIX: Use mock data for local development ---
+            let appId;
+            let firebaseConfig;
+            let initialAuthToken;
+
+            try {
+                // Check if the variables are defined by the development environment
+                appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+                firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+                initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+            } catch (e) {
+                // Handle JSON parsing errors or undefined variables gracefully
+                console.error("Error with environment variables:", e);
+                // Set to null to trigger the local fallback
+                firebaseConfig = null;
+            }
+
+            // If environment variables are not available, use mock data
+            if (!firebaseConfig) {
+                console.log("Running in local development mode. Firebase features are disabled.");
+                // Use a mock configuration to prevent script errors
+                firebaseConfig = {
+                    apiKey: "mock_api_key",
+                    authDomain: "mock-project.firebaseapp.com",
+                    projectId: "mock-project",
+                    storageBucket: "mock-project.appspot.com",
+                    messagingSenderId: "123456789",
+                    appId: "1:123456789:web:abcdef"
+                };
+            }
+            // --- END OF LOCAL FIX ---
 
             // Get DOM elements
             const quoteButton = document.getElementById('quoteButton');
@@ -301,7 +332,6 @@
             const navLinks = document.getElementById('nav-links');
 
             // Initialize Firebase
-            const firebaseConfig = JSON.parse(__firebase_config);
             const app = initializeApp(firebaseConfig);
             db = getFirestore(app);
             auth = getAuth(app);
@@ -315,8 +345,8 @@
                 } else {
                     try {
                         // Use a fallback to anonymous sign-in if the custom token is not available
-                        if (typeof __initial_auth_token !== 'undefined') {
-                            await signInWithCustomToken(auth, __initial_auth_token);
+                        if (initialAuthToken) {
+                            await signInWithCustomToken(auth, initialAuthToken);
                         } else {
                             await signInAnonymously(auth);
                         }
