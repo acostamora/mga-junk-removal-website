@@ -175,17 +175,81 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white text-center py-8 mt-12 rounded-t-xl">
-        <p class="text-sm">&copy; 2024 MGA JunkRemoval. All rights reserved.</p>
+        <div class="container mx-auto px-4">
+            <div class="mb-4">
+                <h3 class="text-lg font-bold mb-2">Follow Us!</h3>
+                <div class="flex justify-center space-x-6">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/mgajunkremoval/" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-500 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2.541c.883 0 1.6.72 1.6 1.6s-.717 1.6-1.6 1.6c-.883 0-1.6-.72-1.6-1.6s.717-1.6 1.6-1.6zM22 6.541c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM19.4 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-10.4 4.8c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm-1.2 1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM11.6 19.4c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm1.2-1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM18.8 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-5.6-3.2c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm3.2 0c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-6.4 0c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zM12 9.2c-1.54 0-2.8 1.26-2.8 2.8s1.26 2.8 2.8 2.8 2.8-1.26 2.8-2.8-1.26-2.8-2.8-2.8zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zM12 2.4c-5.289 0-9.6 4.311-9.6 9.6s4.311 9.6 9.6 9.6 9.6-4.311 9.6-9.6-4.311-9.6-9.6-9.6z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@mgajunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-500 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12.5 0C12.5 0 12 1.5 12 2.5V12.7C12 13.5 12.5 14 13.5 14H15.8C16.6 14 17 13.5 17 12.7V6C17 5.2 16.5 4.5 15.5 4.5H14V0H12.5ZM6.5 10C6.5 10 7.5 11.5 7.5 12.5V20.7C7.5 21.5 8 22 9 22H11.3C12.1 22 12.5 21.5 12.5 20.7V14C12.5 13.2 12 12.5 11 12.5H9.5V10H6.5Z"></path>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/MGAJunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-500 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.35c0 .732.593 1.325 1.325 1.325h11.455v-9.293h-3.11v-3.627h3.11v-2.671c0-3.08 1.88-4.754 4.624-4.754 1.325 0 2.464.099 2.796.143v3.239h-1.921c-1.503 0-1.802.714-1.802 1.764v2.329h3.628l-.472 3.627h-3.156v9.293h6.115c.732 0 1.325-.593 1.325-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <p class="text-sm mt-4">&copy; 2024 MGA JunkRemoval. All rights reserved.</p>
+            <p id="userIdDisplay" class="text-xs text-gray-500 mt-2">User ID: N/A</p>
+        </div>
     </footer>
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables for Firebase services and user data
+        let db;
+        let auth;
+        let userId = null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
         // Get DOM elements
         const quoteButton = document.getElementById('quoteButton');
         const contactModal = document.getElementById('contactModal');
         const closeButton = document.querySelector('.close-button');
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
+        const userIdDisplay = document.getElementById('userIdDisplay');
+
+        // Initialize Firebase
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        auth = getAuth(app);
+        setLogLevel('Debug'); // Enable debug logging for Firestore
+
+        // Handle user authentication
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                userId = user.uid;
+                userIdDisplay.textContent = `User ID: ${userId}`;
+            } else {
+                try {
+                    // Use a fallback to anonymous sign-in if the custom token is not available
+                    if (typeof __initial_auth_token !== 'undefined') {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                } catch (error) {
+                    console.error("Firebase auth error:", error);
+                }
+            }
+        });
 
         // Show modal when the button is clicked
         quoteButton.addEventListener('click', () => {
@@ -204,27 +268,53 @@
             }
         });
 
-        // Handle form submission
-        contactForm.addEventListener('submit', (event) => {
+        // Handle form submission and save to Firestore
+        contactForm.addEventListener('submit', async (event) => {
             event.preventDefault(); // Prevent default submission
 
-            // This is where you would normally send the data to a server
-            // For this example, we'll just show a success message
+            if (!userId) {
+                formStatus.textContent = "Authentication is not ready. Please try again in a moment.";
+                formStatus.classList.remove('text-green-500');
+                formStatus.classList.add('text-red-500');
+                return;
+            }
+
+            // Show loading message
+            formStatus.textContent = "Sending your request...";
+            formStatus.classList.remove('text-red-500', 'text-green-500');
+            formStatus.classList.add('text-gray-500');
 
             // Get form values
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
 
-            // Simulate a successful submission
-            formStatus.textContent = "Thank you for your message, " + name + "! We'll get in touch with you shortly.";
-            formStatus.classList.remove('text-red-500');
-            formStatus.classList.add('text-green-500');
+            try {
+                // Get a reference to the 'quotes' collection for this user and app
+                const quotesCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/quotes`);
 
-            // Optional: clear the form
-            contactForm.reset();
+                // Add a new document to the collection
+                await addDoc(quotesCollectionRef, {
+                    name: name,
+                    phone: phone,
+                    message: message,
+                    timestamp: new Date()
+                });
+
+                // Update status on success
+                formStatus.textContent = `Thank you for your message, ${name}! We'll get in touch with you shortly.`;
+                formStatus.classList.remove('text-red-500', 'text-gray-500');
+                formStatus.classList.add('text-green-500');
+
+                // Clear the form
+                contactForm.reset();
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                formStatus.textContent = "There was an error sending your message. Please try again.";
+                formStatus.classList.remove('text-green-500', 'text-gray-500');
+                formStatus.classList.add('text-red-500');
+            }
         });
     </script>
 </body>
 </html>
-
