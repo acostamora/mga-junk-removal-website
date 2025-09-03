@@ -20,19 +20,19 @@
             background-position: center;
         }
         .modal {
-            display: none;
             position: fixed;
             z-index: 100;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto;
             padding: 2rem;
             border-radius: 10px;
             width: 90%;
@@ -148,7 +148,7 @@
     </section>
 
     <!-- Quote Form Modal -->
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal hidden">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h3 class="text-2xl font-bold mb-4 text-center">Get Your Free Quote</h3>
@@ -211,109 +211,112 @@
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global variables for Firebase services and user data
-        let db;
-        let auth;
-        let userId = null;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        // Wrap the code in a DOMContentLoaded listener to ensure the page is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Global variables for Firebase services and user data
+            let db;
+            let auth;
+            let userId = null;
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
-        // Get DOM elements
-        const quoteButton = document.getElementById('quoteButton');
-        const contactModal = document.getElementById('contactModal');
-        const closeButton = document.querySelector('.close-button');
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
-        const userIdDisplay = document.getElementById('userIdDisplay');
+            // Get DOM elements
+            const quoteButton = document.getElementById('quoteButton');
+            const contactModal = document.getElementById('contactModal');
+            const closeButton = document.querySelector('.close-button');
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const userIdDisplay = document.getElementById('userIdDisplay');
 
-        // Initialize Firebase
-        const firebaseConfig = JSON.parse(__firebase_config);
-        const app = initializeApp(firebaseConfig);
-        db = getFirestore(app);
-        auth = getAuth(app);
-        setLogLevel('Debug'); // Enable debug logging for Firestore
+            // Initialize Firebase
+            const firebaseConfig = JSON.parse(__firebase_config);
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            setLogLevel('Debug'); // Enable debug logging for Firestore
 
-        // Handle user authentication
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                userId = user.uid;
-                userIdDisplay.textContent = `User ID: ${userId}`;
-            } else {
-                try {
-                    // Use a fallback to anonymous sign-in if the custom token is not available
-                    if (typeof __initial_auth_token !== 'undefined') {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
+            // Handle user authentication
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    userId = user.uid;
+                    userIdDisplay.textContent = `User ID: ${userId}`;
+                } else {
+                    try {
+                        // Use a fallback to anonymous sign-in if the custom token is not available
+                        if (typeof __initial_auth_token !== 'undefined') {
+                            await signInWithCustomToken(auth, __initial_auth_token);
+                        } else {
+                            await signInAnonymously(auth);
+                        }
+                    } catch (error) {
+                        console.error("Firebase auth error:", error);
                     }
-                } catch (error) {
-                    console.error("Firebase auth error:", error);
                 }
-            }
-        });
+            });
 
-        // Show modal when the button is clicked
-        quoteButton.addEventListener('click', () => {
-            contactModal.style.display = 'block';
-        });
+            // Show modal when the button is clicked
+            quoteButton.addEventListener('click', () => {
+                contactModal.classList.remove('hidden');
+            });
 
-        // Close modal when the close button is clicked
-        closeButton.addEventListener('click', () => {
-            contactModal.style.display = 'none';
-        });
+            // Close modal when the close button is clicked
+            closeButton.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+            });
 
-        // Close modal when clicked outside of it
-        window.addEventListener('click', (event) => {
-            if (event.target === contactModal) {
-                contactModal.style.display = 'none';
-            }
-        });
+            // Close modal when clicked outside of it
+            window.addEventListener('click', (event) => {
+                if (event.target === contactModal) {
+                    contactModal.classList.add('hidden');
+                }
+            });
 
-        // Handle form submission and save to Firestore
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent default submission
+            // Handle form submission and save to Firestore
+            contactForm.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent default submission
 
-            if (!userId) {
-                formStatus.textContent = "Authentication is not ready. Please try again in a moment.";
-                formStatus.classList.remove('text-green-500');
-                formStatus.classList.add('text-red-500');
-                return;
-            }
+                if (!userId) {
+                    formStatus.textContent = "Authentication is not ready. Please try again in a moment.";
+                    formStatus.classList.remove('text-green-500');
+                    formStatus.classList.add('text-red-500');
+                    return;
+                }
 
-            // Show loading message
-            formStatus.textContent = "Sending your request...";
-            formStatus.classList.remove('text-red-500', 'text-green-500');
-            formStatus.classList.add('text-gray-500');
+                // Show loading message
+                formStatus.textContent = "Sending your request...";
+                formStatus.classList.remove('text-red-500', 'text-green-500');
+                formStatus.classList.add('text-gray-500');
 
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
+                // Get form values
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
 
-            try {
-                // Get a reference to the 'quotes' collection for this user and app
-                const quotesCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/quotes`);
+                try {
+                    // Get a reference to the 'quotes' collection for this user and app
+                    const quotesCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/quotes`);
 
-                // Add a new document to the collection
-                await addDoc(quotesCollectionRef, {
-                    name: name,
-                    phone: phone,
-                    message: message,
-                    timestamp: new Date()
-                });
+                    // Add a new document to the collection
+                    await addDoc(quotesCollectionRef, {
+                        name: name,
+                        phone: phone,
+                        message: message,
+                        timestamp: new Date()
+                    });
 
-                // Update status on success
-                formStatus.textContent = `Thank you for your message, ${name}! We'll get in touch with you shortly.`;
-                formStatus.classList.remove('text-red-500', 'text-gray-500');
-                formStatus.classList.add('text-green-500');
+                    // Update status on success
+                    formStatus.textContent = `Thank you for your message, ${name}! We'll get in touch with you shortly.`;
+                    formStatus.classList.remove('text-red-500', 'text-gray-500');
+                    formStatus.classList.add('text-green-500');
 
-                // Clear the form
-                contactForm.reset();
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                formStatus.textContent = "There was an error sending your message. Please try again.";
-                formStatus.classList.remove('text-green-500', 'text-gray-500');
-                formStatus.classList.add('text-red-500');
-            }
+                    // Clear the form
+                    contactForm.reset();
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                    formStatus.textContent = "There was an error sending your message. Please try again.";
+                    formStatus.classList.remove('text-green-500', 'text-gray-500');
+                    formStatus.classList.add('text-red-500');
+                }
+            });
         });
     </script>
 </body>
