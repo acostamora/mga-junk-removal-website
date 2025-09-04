@@ -89,6 +89,18 @@
             position: relative;
             z-index: 2;
         }
+        /* Custom animation for the button */
+        @keyframes pulse-green {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        .animate-pulse-green {
+            animation: pulse-green 2s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -112,8 +124,9 @@
                 <a href="#about" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">About Us</a>
                 <a href="#reviews" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Reviews</a>
                 <a href="#contact" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Contact Us</a>
-                <a href="#contact" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-2 px-4 rounded-full shadow-md transition duration-300 mt-2 md:mt-0">
-                    Call Now For Quote
+                <!-- Updated button with link to contact page -->
+                <a href="#contact" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-2 px-6 rounded-full shadow-md transition duration-300 mt-2 md:mt-0">
+                    LLAMA AHORA
                 </a>
             </div>
         </div>
@@ -121,14 +134,19 @@
 
     <!-- Hero Section -->
     <header class="hero text-white text-center py-20 md:py-32 rounded-b-xl">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">MGA JunkRemoval</h1>
-            <p class="text-lg md:text-2xl mb-8 font-light">
-                It's time to reclaim your space. We make it easy.
-            </p>
-            <a href="#contact" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
-                Call Now For Quote
-            </a>
+        <div class="container mx-auto px-4 flex flex-col justify-center items-center h-full">
+            <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl max-w-lg w-full">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">MGA JunkRemoval</h1>
+                <p class="text-lg md:text-2xl mb-8 font-light">
+                    It's time to reclaim your space. We make it easy.
+                </p>
+                <div class="bg-lime-500 p-6 rounded-xl shadow-lg">
+                    <a href="tel:+13468038094" class="text-gray-900 font-bold py-2 px-4 transition duration-300 text-center flex flex-col items-center justify-center animate-pulse-green">
+                        <span class="text-3xl md:text-4xl font-extrabold tracking-tight">346-803-8094</span>
+                        <span class="mt-1 text-sm md:text-base font-semibold">CALL NOW FOR QUOTE</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -165,13 +183,13 @@
                 <!-- Service Card 5: Electronics Waste (E-Waste) Disposal -->
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
                     <img src="Electronics Waste (E-Waste) Disposal.jpg" alt="Electronics Waste (E-Waste) Disposal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Electronics Waste (E-Waste) Disposal</h3>
+                    <h3 class="text-xl font-semibold mb-2">Electronics Waste &lpar;E-Waste&rpar; Disposal</h3>
                     <p class="text-gray-600">Responsible disposal of old or broken electronic equipment such as computers, printers, TVs, and phones. We ensure these items are properly recycled.</p>
                 </div>
                 <!-- Service Card 6: Special/Hazardous Item Removal -->
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
                     <img src="Special Hazardous Items Removal.jpg" alt="Special/Hazardous Item Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Special/Hazardous Item Removal</h3>
+                    <h3 class="text-xl font-semibold mb-2">Special &sol; Hazardous Item Removal</h3>
                     <p class="text-gray-600">Some items require special handling due to their composition or hazardous nature. This service is available with additional fees.</p>
                 </div>
             </div>
@@ -241,7 +259,7 @@
                 <h3 class="text-lg font-bold mb-2">Follow Us!</h3>
                 <div class="flex justify-center space-x-6">
                     <!-- Instagram -->
-                    <a href="https://www.instagram.com/mgajunkremoval/" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
+                    <a href="https://www.instagram.com/mgajunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fill-rule="evenodd" d="M12.315 2.541c.883 0 1.6.72 1.6 1.6s-.717 1.6-1.6 1.6c-.883 0-1.6-.72-1.6-1.6s.717-1.6 1.6-1.6zM22 6.541c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM19.4 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-10.4 4.8c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm-1.2 1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM11.6 19.4c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm1.2-1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM18.8 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-5.6-3.2c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm3.2 0c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-6.4 0c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zM12 9.2c-1.54 0-2.8 1.26-2.8 2.8s1.26 2.8 2.8 2.8 2.8-1.26 2.8-2.8-1.26-2.8-2.8-2.8zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zM12 2.4c-5.289 0-9.6 4.311-9.6 9.6s4.311 9.6 9.6 9.6 9.6-4.311 9.6-9.6-4.311-9.6-9.6-9.6z" clip-rule="evenodd"></path>
                         </svg>
