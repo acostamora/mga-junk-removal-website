@@ -19,40 +19,6 @@
             background-size: cover;
             background-position: center;
         }
-        .modal {
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            padding: 2rem;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-        }
-        .close-button {
-            color: #aaa;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -146,9 +112,9 @@
                 <a href="#about" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">About Us</a>
                 <a href="#reviews" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Reviews</a>
                 <a href="#contact" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Contact Us</a>
-                <button id="quoteButtonNav" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-2 px-4 rounded-full shadow-md transition duration-300 mt-2 md:mt-0">
-                    Free Quote
-                </button>
+                <a href="#contact" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-2 px-4 rounded-full shadow-md transition duration-300 mt-2 md:mt-0">
+                    Call Now For Quote
+                </a>
             </div>
         </div>
     </nav>
@@ -160,9 +126,9 @@
             <p class="text-lg md:text-2xl mb-8 font-light">
                 It's time to reclaim your space. We make it easy.
             </p>
-            <button id="quoteButton" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
-                Get a Free Quote!
-            </button>
+            <a href="#contact" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                Call Now For Quote
+            </a>
         </div>
     </header>
 
@@ -268,34 +234,6 @@
         </div>
     </section>
 
-    <!-- Quote Form Modal -->
-    <div id="contactModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold mb-4 text-center">Get Your Free Quote</h3>
-            <form id="contactForm">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500" required>
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-700 font-semibold mb-2">What do you need us to remove?</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500" required></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
-                        Send Quote
-                    </button>
-                </div>
-            </form>
-            <p id="formStatus" class="mt-4 text-center text-sm font-semibold"></p>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer class="bg-gray-800 text-white text-center py-8 mt-12 rounded-t-xl">
         <div class="container mx-auto px-4">
@@ -372,12 +310,6 @@
             // --- END OF LOCAL FIX ---
 
             // Get DOM elements
-            const quoteButton = document.getElementById('quoteButton');
-            const quoteButtonNav = document.getElementById('quoteButtonNav');
-            const contactModal = document.getElementById('contactModal');
-            const closeButton = document.querySelector('.close-button');
-            const contactForm = document.getElementById('contactForm');
-            const formStatus = document.getElementById('formStatus');
             const userIdDisplay = document.getElementById('userIdDisplay');
             const menuButton = document.getElementById('menu-button');
             const navLinks = document.getElementById('nav-links');
@@ -410,75 +342,6 @@
             // Toggle mobile menu visibility
             menuButton.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-            });
-            
-            // Show modal when the buttons are clicked
-            quoteButton.addEventListener('click', () => {
-                contactModal.classList.remove('hidden');
-            });
-            quoteButtonNav.addEventListener('click', () => {
-                contactModal.classList.remove('hidden');
-                navLinks.classList.remove('active'); // Close mobile menu if open
-            });
-
-            // Close modal when the close button is clicked
-            closeButton.addEventListener('click', () => {
-                contactModal.classList.add('hidden');
-            });
-
-            // Close modal when clicked outside of it
-            window.addEventListener('click', (event) => {
-                if (event.target === contactModal) {
-                    contactModal.classList.add('hidden');
-                }
-            });
-
-            // Handle form submission and save to Firestore
-            contactForm.addEventListener('submit', async (event) => {
-                event.preventDefault(); // Prevent default submission
-
-                if (!userId) {
-                    formStatus.textContent = "Authentication is not ready. Please try again in a moment.";
-                    formStatus.classList.remove('text-green-500');
-                    formStatus.classList.add('text-red-500');
-                    return;
-                }
-
-                // Show loading message
-                formStatus.textContent = "Sending your request...";
-                formStatus.classList.remove('text-red-500', 'text-green-500');
-                formStatus.classList.add('text-gray-500');
-
-                // Get form values
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const message = document.getElementById('message').value;
-
-                try {
-                    // Get a reference to the 'quotes' collection for this user and app
-                    const quotesCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/quotes`);
-
-                    // Add a new document to the collection
-                    await addDoc(quotesCollectionRef, {
-                        name: name,
-                        phone: phone,
-                        message: message,
-                        timestamp: new Date()
-                    });
-
-                    // Update status on success
-                    formStatus.textContent = `Thank you for your message, ${name}! We will get back to you shortly.`;
-                    formStatus.classList.remove('text-red-500', 'text-gray-500');
-                    formStatus.classList.add('text-green-500');
-
-                    // Clear the form
-                    contactForm.reset();
-                } catch (e) {
-                    console.error("Error adding document: ", e);
-                    formStatus.textContent = "There was an error sending your message. Please try again.";
-                    formStatus.classList.remove('text-green-500', 'text-gray-500');
-                    formStatus.classList.add('text-red-500');
-                }
             });
         });
     </script>
