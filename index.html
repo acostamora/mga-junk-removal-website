@@ -30,29 +30,7 @@
                 display: flex;
             }
         }
-        /* Custom styles for masonry grid layout */
-        .masonry-grid {
-            column-count: 1;
-            column-gap: 1.5rem; /* Equivalent to Tailwind's gap-6 */
-        }
-        @media (min-width: 640px) { /* sm breakpoint */
-            .masonry-grid {
-                column-count: 2;
-            }
-        }
-        @media (min-width: 1024px) { /* lg breakpoint */
-            .masonry-grid {
-                column-count: 3;
-            }
-        }
-        .masonry-item {
-            display: inline-block; /* Important for the masonry effect */
-            width: 100%;
-            break-inside: avoid;
-            margin-bottom: 1.5rem; /* Equivalent to Tailwind's mb-6 */
-        }
-
-        /* Styles for the dynamic photo background */
+              /* Styles for the dynamic photo background */
         #about {
             position: relative;
             overflow: hidden;
@@ -220,19 +198,18 @@
     </section>
 
     <!-- Reviews Section (Masonry Grid) -->
-    <section id="reviews" class="bg-gray-100 py-16 md:py-24 px-4">
-        <div class="container mx-auto max-w-6xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 text-lime-600">What Our Customers Say</h2>
-            <p class="text-lg text-gray-600 text-center mb-12">
-                Don't just take our word for it - see what Houston residents are saying about our service.
-            </p>
+   <section id="reviews" class="bg-gray-100 py-16 md:py-24 px-4">
+    <div class="container mx-auto max-w-6xl text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 text-lime-600">What Our Customers Say</h2>
+        <p class="text-lg text-gray-600 text-center mb-12">
+            Don't just take our word for it - see what Houston residents are saying about our service.
+        </p>
 
-            <!-- Masonry Grid Container -->
-            <div id="reviews-grid" class="masonry-grid">
-                <!-- Reviews will be dynamically inserted here by JavaScript -->
-            </div>
+        <div class="trustindex-container" style="min-height: 200px;">
+            <script defer async src='https://cdn.trustindex.io/loader.js?82abd6f619ea5420903602a0be9'></script>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-24 px-4 bg-gray-800 text-white rounded-t-xl">
@@ -365,55 +342,7 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const reviews = [
-                { text: "On time, very professional, great personality, will definitely use again!", author: "Carolyn Clarkson", location: "Katy, TX", stars: 5 },
-                { text: "Extremely happy with the work performed clearing out two storage units for a reasonable price. They took the stress out of a stressful task and I recommend them highly.", author: "Pat Regnier", location: "Houston, TX", stars: 5 },
-                { text: "Punctual. Price quoted was price of the items removed. Very efficient, friendly.", author: "Cynthia Groves", location: "Cypress, TX", stars: 5 },
-                { text: "I needed to have removed wall oven.Picked up and Leo was so kind.It's hard to believe that someone is really kind in this day and age.But he helped out a senior and I really appreciate it. Our contractor that did the work would not take it. Thank you so so much.Leo definitely refer to you", author: "Darcy Truehan", location: "Sugar Land, TX", stars: 5 },
-                { text: "Very professional, on time, definitely I will use their services in the future", author: "Nicholas Abdouche", location: "Houston, TX", stars: 5 },
-                { text: "Great experience. Would highly reccomend. Friendly, courteous and very professional. They showed up at the scheduled time and were very careful when removing items", author: "Jonathan Thomas", location: "Pearland, TX", stars: 5 },
-                { text: "Very good service and did a fantastic job in a very timely manner. Would give 6 stars if I could.", author: "Hanne STILWELL", location: "League City, TX", stars: 5 },
-                { text: "nice person, very good service, highly recommended.", author: "Chao Tsang Huang", location: "Houston, TX", stars: 5 }
-            ];
-
-            const reviewsGrid = document.getElementById('reviews-grid');
-
-            // Function to render star icons
-            function renderStars(count) {
-                let stars = '';
-                for (let i = 0; i < 5; i++) {
-                    stars += `<span class="text-yellow-400 text-2xl">★</span>`;
-                }
-                return stars;
-            }
-
-            // Function to render reviews in the masonry grid
-            function renderReviews() {
-                reviewsGrid.innerHTML = '';
-                reviews.forEach(review => {
-                    // Changed p-6 to p-5 to make the cards slightly smaller
-                    const reviewCard = document.createElement('div');
-                    reviewCard.className = 'masonry-item bg-white rounded-xl shadow-md p-5 transform hover:scale-103 hover:shadow-lg transition duration-300 flex flex-col justify-between';
-                    reviewCard.innerHTML = `
-                        <div>
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="flex">${renderStars(review.stars)}</div>
-                            </div>
-                            <p class="italic text-gray-700 mb-4 flex-grow">"${review.text}"</p>
-                        </div>
-                        <div>
-                            <div class="text-gray-900 font-semibold">- ${review.author}</div>
-                            <div class="text-gray-500 text-sm">${review.location}</div>
-                        </div>
-                    `;
-                    reviewsGrid.appendChild(reviewCard);
-                });
-            }
-
-            // Initial render
-            renderReviews();
-
-            // Photo gallery logic for the About Us section
+                       // Photo gallery logic for the About Us section
             const galleryImages = document.querySelectorAll('#photo-gallery-background img');
             let currentImageIndex = 0;
 
@@ -452,6 +381,7 @@ s0.parentNode.insertBefore(s1,s0);
 <!--End of Tawk.to Script-->
 </body>
 </html>
+
 
 
 
