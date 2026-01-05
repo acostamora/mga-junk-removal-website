@@ -9,59 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
         .hero {
             background-color: #2d3436; 
             background-image: linear-gradient(rgba(45, 52, 54, 0.7), rgba(45, 52, 54, 0.7)), url('truck and trailer.jpg');
             background-size: cover;
             background-position: center;
         }
-        #about {
-            position: relative;
-            overflow: hidden;
-            color: white;
-        }
-        #photo-gallery-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-        #photo-gallery-background img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-        #about-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-        #about-content {
-            position: relative;
-            z-index: 2;
-        }
-        @keyframes pulse-green {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .animate-pulse-green {
-            animation: pulse-green 2s infinite ease-in-out;
-        }
+        #about { position: relative; overflow: hidden; color: white; }
+        #photo-gallery-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        #photo-gallery-background img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        #about-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1; }
+        #about-content { position: relative; z-index: 2; }
+        @keyframes pulse-green { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .animate-pulse-green { animation: pulse-green 2s infinite ease-in-out; }
     </style>
 </head>
 <body class="text-gray-800">
@@ -92,92 +53,77 @@
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">MGA JunkRemoval</h1>
                 <p class="text-lg md:text-2xl mb-8 font-light">It's time to reclaim your space. We make it easy.</p>
                 <div class="bg-lime-500 p-4 sm:p-6 rounded-xl shadow-lg">
-                    <a href="tel:+13468038094" class="text-gray-900 font-bold py-2 px-4 text-center flex flex-col items-center justify-center animate-pulse-green">
-                        <span class="text-3xl md:text-4xl font-extrabold tracking-tight">346-803-8094</span>
-                        <span class="mt-1 text-sm md:text-base font-semibold">CALL NOW FOR QUOTE</span>
+                    <a href="tel:+13468038094" class="text-gray-900 font-bold py-2 px-4 flex flex-col items-center animate-pulse-green">
+                        <span class="text-3xl md:text-4xl font-extrabold">346-803-8094</span>
+                        <span class="mt-1 text-sm font-semibold">CALL NOW FOR QUOTE</span>
                     </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="services" class="py-16 md:py-24 px-4">
+    <section id="services" class="py-16 px-4">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300">
-                    <img src="Furniture & Appliance Removal.jpg" alt="Furniture" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Furniture & Appliance Removal</h3>
-                    <p class="text-gray-600">Removal of large furniture and major appliances.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300">
-                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" alt="Cleanouts" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Garage, Basement & Attic Cleanouts</h3>
-                    <p class="text-gray-600">A comprehensive service to clear out cluttered spaces.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300">
-                    <img src="Construction Debris Removal.jpg" alt="Construction" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Construction Debris Removal</h3>
-                    <p class="text-gray-600">Collection and disposal of construction materials.</p>
-                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md"><img src="Furniture & Appliance Removal.jpg" class="mx-auto mb-4 w-24 h-24 rounded-lg"><h3>Furniture & Appliance Removal</h3><p class="text-gray-600">Large items like couches, beds, and refrigerators.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-md"><img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" class="mx-auto mb-4 w-24 h-24 rounded-lg"><h3>Garage, Basement & Attic Cleanouts</h3><p class="text-gray-600">Comprehensive clearing of cluttered spaces.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-md"><img src="Construction Debris Removal.jpg" class="mx-auto mb-4 w-24 h-24 rounded-lg"><h3>Construction Debris Removal</h3><p class="text-gray-600">Disposal of wood, drywall, and renovation waste.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-md"><img src="Yard Waste & Green Debris Removal.jpg" class="mx-auto mb-4 w-24 h-24 rounded-lg"><h3>Yard Waste & Green Debris</h3><p class="text-gray-600">Branches, leaves, and landscaping waste.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-md"><img src="Electronics Waste (E-Waste) Disposal.jpg" class="mx-auto mb-4 w-24 h-24 rounded-lg"><h3>E-Waste Disposal</h3><p class="text-gray-600">Proper recycling of TVs, computers, and phones.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-md"><img src="Special Hazardous Items Removal.jpg" class="mx-auto mb-4 w-24 h-24 rounded-lg"><h3>Special Item Removal</h3><p class="text-gray-600">Handling of items that require special care.</p></div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-16 md:py-24 px-4">
+    <section id="about" class="py-16 px-4">
         <div id="photo-gallery-background">
-            <img src="2.jpg" alt="1" style="opacity:1">
-            <img src="4.jpg" alt="2">
-            <img src="1.jpg" alt="3">
-            <img src="3.jpg" alt="4">
+            <img src="2.jpg" style="opacity:1"><img src="4.jpg"><img src="1.jpg"><img src="3.jpg">
         </div>
         <div id="about-overlay"></div>
-        <div id="about-content" class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
-            <p class="text-lg mb-6">We are a family-owned business committed to providing reliable junk removal.</p>
+        <div id="about-content" class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">About Us</h2>
+            <p class="max-w-2xl mx-auto">We are a family-owned business committed to providing reliable and efficient junk removal services.</p>
         </div>
     </section>
 
     <section id="reviews" class="bg-gray-100 py-16 px-4">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-lime-600">What Our Customers Say</h2>
-            <div class="trustindex-container">
-                <script defer async src='https://cdn.trustindex.io/loader.js?82abd6f619ea5420903602a0be9'></script>
-            </div>
+            <h2 class="text-3xl font-bold mb-8 text-lime-600">What Our Customers Say</h2>
+            <script defer async src='https://cdn.trustindex.io/loader.js?82abd6f619ea5420903602a0be9'></script>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white text-center py-8">
+    <section id="contact" class="py-16 bg-gray-800 text-white text-center">
+        <h2 class="text-3xl font-bold mb-6">Contact Us Today</h2>
+        <a href="tel:346-803-8094" class="bg-lime-500 text-gray-900 font-bold py-3 px-8 rounded-full inline-block">Call: 346-803-8094</a>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8 text-center">
         <p>&copy; 2024 MGA JunkRemoval. All rights reserved.</p>
     </footer>
 
     <script>
-        // Script simple para el menú móvil
-        const menuButton = document.getElementById('menu-button');
-        const navLinks = document.getElementById('nav-links');
-        menuButton.addEventListener('click', () => {
-            navLinks.classList.toggle('hidden');
-            navLinks.classList.toggle('flex');
-        });
+        const menuBtn = document.getElementById('menu-button');
+        const navLks = document.getElementById('nav-links');
+        menuBtn.onclick = () => navLks.classList.toggle('hidden');
 
-        // Script para la galería del About Us
-        const galleryImages = document.querySelectorAll('#photo-gallery-background img');
-        let currentImageIndex = 0;
+        const imgs = document.querySelectorAll('#photo-gallery-background img');
+        let idx = 0;
         setInterval(() => {
-            galleryImages[currentImageIndex].style.opacity = '0';
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            galleryImages[currentImageIndex].style.opacity = '1';
+            imgs[idx].style.opacity = '0';
+            idx = (idx + 1) % imgs.length;
+            imgs[idx].style.opacity = '1';
         }, 5000);
+    </script>
+    
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true; s1.src='https://embed.tawk.to/6959f2cdafb7451974fa689c/1je3losr9'; s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
