@@ -19,15 +19,7 @@
             background-size: cover;
             background-position: center;
         }
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #2d3436; /* Dark gray */
-            }
-            .nav-menu.active {
-                display: flex;
+                       display: flex;
             }
         }
               /* Styles for the dynamic photo background */
@@ -84,32 +76,27 @@
 <body class="text-gray-800">
 
     <!-- Navigation Bar -->
-    <nav class="bg-white shadow-md rounded-b-xl py-4 sticky top-0 z-50">
+   <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <!-- Logo in the top-left corner -->
-           <a href="#" class="flex items-center">
-    <img src="logo-mga.png" alt="MGA JunkRemoval Logo" class="h-16 w-auto object-contain" onerror="this.src='https://via.placeholder.com/200x80?text=MGA+Junk+Removal'">
-</a>
+            <a href="#" class="flex items-center">
+                <img src="logo-mga.png" alt="MGA JunkRemoval" class="h-14 w-auto">
+            </a>
+            
             <div class="md:hidden">
-                <button id="menu-button" class="text-gray-900 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
+                <button id="menu-button" class="text-gray-900 p-2 focus:outline-none bg-gray-100 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
-            <div id="nav-links" class="nav-menu md:flex md:items-center space-x-0 md:space-x-8 mt-4 md:mt-0">
-                <a href="#services" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Our Services</a>
-                <a href="#about" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">About Us</a>
-                <a href="#reviews" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Reviews</a>
-                <a href="#contact" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-semibold transition duration-300">Contact Us</a>
-                <!-- Updated button with link to text message -->
-                <a href="sms:+13468038094" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-2 px-6 rounded-full shadow-md transition duration-300 mt-2 md:mt-0">
-                    TEXT NOW
-                </a>
+
+            <div id="nav-links" class="hidden md:flex md:items-center absolute md:static top-full left-0 w-full md:w-auto bg-white border-t md:border-none flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 p-6 md:p-0 shadow-xl md:shadow-none">
+                <a href="#services" class="text-gray-800 hover:text-lime-600 font-bold">Our Services</a>
+                <a href="#about" class="text-gray-800 hover:text-lime-600 font-bold">About Us</a>
+                <a href="#reviews" class="text-gray-800 hover:text-lime-600 font-bold">Reviews</a>
+                <a href="#contact" class="text-gray-800 hover:text-lime-600 font-bold">Contact Us</a>
+                <a href="sms:+13468038094" class="bg-lime-500 text-gray-900 font-extrabold py-2 px-6 rounded-full text-center shadow-md">TEXT NOW</a>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <header class="hero text-white text-center py-20 md:py-32 rounded-b-xl">
         <div class="container mx-auto px-4 flex flex-col justify-center items-center h-full">
@@ -454,6 +441,7 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 </body>
 </html>
+
 
 
 
