@@ -71,7 +71,23 @@
         .animate-pulse-green {
             animation: pulse-green 2s infinite ease-in-out;
         }
-    </style>
+    </style>/* Ajuste para que el menú sea sólido y elegante */
+        nav {
+            background-color: #2d3436 !important; /* Gris oscuro del logo */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Forzar que el logo sea grande sin romper el menú */
+        .logo-container img {
+            height: 100px !important; /* Aumentamos el tamaño */
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container img {
+                height: 80px !important; /* Tamaño para celular */
+            }
+        }
 </head>
 <body class="text-gray-800">
 
@@ -441,6 +457,7 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 </body>
 </html>
+
 
 
 
