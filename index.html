@@ -14,19 +14,15 @@
             background-color: #f3f4f6;
         }
         .hero {
-            background-color: #2d3436; /* Dark gray from logo */
+            background-color: #2d3436; 
             background-image: linear-gradient(rgba(45, 52, 54, 0.7), rgba(45, 52, 54, 0.7)), url('truck and trailer.jpg');
             background-size: cover;
             background-position: center;
         }
-                       display: flex;
-            }
-        }
-              /* Styles for the dynamic photo background */
         #about {
             position: relative;
             overflow: hidden;
-            color: white; /* Ensure text is readable on the dark background */
+            color: white;
         }
         #photo-gallery-background {
             position: absolute;
@@ -59,70 +55,44 @@
             position: relative;
             z-index: 2;
         }
-        /* Custom animation for the button */
         @keyframes pulse-green {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         .animate-pulse-green {
             animation: pulse-green 2s infinite ease-in-out;
         }
-    </style>/* Ajuste para que el menú sea sólido y elegante */
-        nav {
-            background-color: #2d3436 !important; /* Gris oscuro del logo */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        /* Forzar que el logo sea grande sin romper el menú */
-        .logo-container img {
-            height: 100px !important; /* Aumentamos el tamaño */
-            transition: transform 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            .logo-container img {
-                height: 80px !important; /* Tamaño para celular */
-            }
-        }
+    </style>
 </head>
 <body class="text-gray-800">
 
-    <!-- Navigation Bar -->
-   <nav class="fixed top-0 left-0 w-full z-[100] py-2">
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="logo-container">
-                <img src="logo-mga.png" alt="MGA JunkRemoval" class="w-auto drop-shadow-md">
+            <a href="#" class="flex items-center">
+                <img src="logo-mga.png" alt="MGA JunkRemoval" class="h-14 w-auto">
             </a>
-            
             <div class="md:hidden">
-                <button id="menu-button" class="text-white p-2 focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <button id="menu-button" class="text-gray-900 p-2 focus:outline-none bg-gray-100 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
-
-            <div id="nav-links" class="hidden md:flex md:items-center absolute md:static top-full left-0 w-full md:w-auto bg-[#2d3436] md:bg-transparent flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 p-6 md:p-0">
-                <a href="#services" class="text-white hover:text-lime-400 font-bold uppercase text-sm">Our Services</a>
-                <a href="#about" class="text-white hover:text-lime-400 font-bold uppercase text-sm">About Us</a>
-                <a href="#reviews" class="text-white hover:text-lime-400 font-bold uppercase text-sm">Reviews</a>
-                <a href="#contact" class="text-white hover:text-lime-400 font-bold uppercase text-sm">Contact Us</a>
-                <a href="sms:+13468038094" class="bg-lime-500 text-gray-900 font-extrabold py-2 px-6 rounded-full text-center shadow-lg hover:bg-lime-400 transition">TEXT NOW</a>
+            <div id="nav-links" class="hidden md:flex md:items-center absolute md:static top-full left-0 w-full md:w-auto bg-white border-t md:border-none flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 p-6 md:p-0 shadow-xl md:shadow-none font-bold">
+                <a href="#services" class="text-gray-800 hover:text-lime-600">Our Services</a>
+                <a href="#about" class="text-gray-800 hover:text-lime-600">About Us</a>
+                <a href="#reviews" class="text-gray-800 hover:text-lime-600">Reviews</a>
+                <a href="#contact" class="text-gray-800 hover:text-lime-600">Contact Us</a>
+                <a href="sms:+13468038094" class="bg-lime-500 text-gray-900 py-2 px-6 rounded-full text-center">TEXT NOW</a>
             </div>
         </div>
     </nav>
-    <!-- Hero Section -->
-    <header class="hero text-white text-center pt-40 pb-20 md:pt-56 md:pb-32 rounded-b-[40px] shadow-2xl">
+
+    <header class="hero text-white text-center py-20 md:py-32 rounded-b-xl">
         <div class="container mx-auto px-4 flex flex-col justify-center items-center h-full">
             <div class="bg-gray-800 bg-opacity-70 p-6 sm:p-8 rounded-xl max-w-lg w-full">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">MGA JunkRemoval</h1>
-                <p class="text-lg md:text-2xl mb-8 font-light">
-                    It's time to reclaim your space. We make it easy.
-                </p>
+                <p class="text-lg md:text-2xl mb-8 font-light">It's time to reclaim your space. We make it easy.</p>
                 <div class="bg-lime-500 p-4 sm:p-6 rounded-xl shadow-lg">
-                    <a href="tel:+13468038094" class="text-gray-900 font-bold py-2 px-4 transition duration-300 text-center flex flex-col items-center justify-center animate-pulse-green">
+                    <a href="tel:+13468038094" class="text-gray-900 font-bold py-2 px-4 text-center flex flex-col items-center justify-center animate-pulse-green">
                         <span class="text-3xl md:text-4xl font-extrabold tracking-tight">346-803-8094</span>
                         <span class="mt-1 text-sm md:text-base font-semibold">CALL NOW FOR QUOTE</span>
                     </a>
@@ -131,341 +101,76 @@
         </div>
     </header>
 
-    <!-- Services Section -->
     <section id="services" class="py-16 md:py-24 px-4">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
-            <!-- Grid container for services -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-                <!-- Service Card 1: Furniture and Appliance Removal -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Furniture & Appliance Removal.jpg" alt="Furniture and Appliance Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <img src="Furniture & Appliance Removal.jpg" alt="Furniture" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2">Furniture & Appliance Removal</h3>
-                    <p class="text-gray-600">This service involves the removal of large and bulky furniture like couches, beds, tables, and chairs, as well as major appliances like refrigerators, washing machines, and stoves.</p>
+                    <p class="text-gray-600">Removal of large furniture and major appliances.</p>
                 </div>
-                <!-- Service Card 2: Garage, Basement, Storage Units and Attic Cleanouts -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" alt="Garage, Basement & Attic Cleanouts" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" alt="Cleanouts" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2">Garage, Basement & Attic Cleanouts</h3>
-                    <p class="text-gray-600">A comprehensive service to clear out cluttered spaces like garages, basements, or attics. This may involve removing a mixture of general items, small furniture, and old tools.</p>
+                    <p class="text-gray-600">A comprehensive service to clear out cluttered spaces.</p>
                 </div>
-                <!-- Service Card 3: Construction Debris and Rubble Removal -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Construction Debris Removal.jpg" alt="Construction Debris Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300">
+                    <img src="Construction Debris Removal.jpg" alt="Construction" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2">Construction Debris Removal</h3>
-                    <p class="text-gray-600">Collection and disposal of construction materials such as wood, drywall, concrete, tiles, and old carpeting resulting from renovation or demolition projects.</p>
-                </div>
-                <!-- Service Card 4: Yard Waste and Green Debris Removal -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Yard Waste & Green Debris Removal.jpg" alt="Yard Waste and Green Debris Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Yard Waste & Green Debris Removal</h3>
-                    <p class="text-gray-600">Removal of branches, leaves, grass clippings, dirt, rocks, lumber, and other yard or landscaping waste.</p>
-                </div>
-                <!-- Service Card 5: Electronics Waste (E-Waste) Disposal -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Electronics Waste (E-Waste) Disposal.jpg" alt="Electronics Waste (E-Waste) Disposal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Electronics Waste &lpar;E-Waste&rpar; Disposal</h3>
-                    <p class="text-gray-600">Responsible disposal of old or broken electronic equipment such as computers, printers, TVs, and phones. We ensure these items are properly recycled.</p>
-                </div>
-                <!-- Service Card 6: Special/Hazardous Item Removal -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Special Hazardous Items Removal.jpg" alt="Special/Hazardous Item Removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">Special &sol; Hazardous Item Removal</h3>
-                    <p class="text-gray-600">Some items require special handling due to their composition or hazardous nature. This service is available with additional fees.</p>
+                    <p class="text-gray-600">Collection and disposal of construction materials.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- "About Us" Section with Dynamic Photo Background -->
     <section id="about" class="py-16 md:py-24 px-4">
-        <!-- Photo Gallery Background -->
         <div id="photo-gallery-background">
-            <img src="2.jpg" alt="Junk removal work 1" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-            <img src="4.jpg" alt="Junk removal work 2" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-            <img src="1.jpg" alt="Junk removal work 3" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-            <img src="3.jpg" alt="Junk removal work 4" class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="2.jpg" alt="1" style="opacity:1">
+            <img src="4.jpg" alt="2">
+            <img src="1.jpg" alt="3">
+            <img src="3.jpg" alt="4">
         </div>
-        <!-- Dark Overlay -->
         <div id="about-overlay"></div>
-        <!-- About Us Content -->
         <div id="about-content" class="container mx-auto max-w-4xl text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
-            <p class="text-lg mb-6">
-                We are a family-owned business committed to providing reliable and efficient junk removal services. With years of experience, our team specializes in cleaning out and decluttering spaces, leaving your property stress-free and spotless.
-            </p>
-            <p class="text-lg">
-                We take pride in our work and strive to deliver exceptional customer service on every project. Let us help you reclaim your space!
-            </p>
+            <p class="text-lg mb-6">We are a family-owned business committed to providing reliable junk removal.</p>
         </div>
     </section>
 
-    <!-- Reviews Section (Masonry Grid) -->
-   <section id="reviews" class="bg-gray-100 py-16 md:py-24 px-4">
-    <div class="container mx-auto max-w-6xl text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 text-lime-600">What Our Customers Say</h2>
-        <p class="text-lg text-gray-600 text-center mb-12">
-            Don't just take our word for it - see what Houston residents are saying about our service.
-        </p>
-
-        <div class="trustindex-container" style="min-height: 200px;">
-            <script defer async src='https://cdn.trustindex.io/loader.js?82abd6f619ea5420903602a0be9'></script>
-        </div>
-    </div>
-<section class="py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Areas We Serve</h2>
-            <p class="text-gray-600 mb-10 max-w-2xl mx-auto">We provide fast and reliable junk removal services within a 40-mile radius of Houston.</p>
-            
-            <div class="flex flex-wrap justify-center gap-3 text-xs md:text-base font-bold text-gray-800">
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Houston</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Pearland</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Sugar Land</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Missouri City</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Pasadena</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Friendswood</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 League City</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Alvin</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Katy</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 The Woodlands</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Cypress</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Kingwood</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Humble</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Baytown</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Clear Lake</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Richmond</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Rosenberg</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Webster</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Tomball</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Conroe</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Texas City</span>
-            </div>
-            
-            <p class="mt-8 text-gray-500 italic">If you are within 40 miles of Houston and don't see your city, call us at 346-803-8094!</p>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 px-4 bg-gray-800 text-white rounded-t-xl">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us Today</h2>
-            <p class="text-lg mb-8">
-                Call us for a free quote. We're ready to help you.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                <a href="tel:346-803-8094" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
-                    Call: 346-803-8094
-                </a>
-                <a href="mailto:acosta.mora@gmail.com" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transition duration-300">
-                    Send an Email
-                </a>
+    <section id="reviews" class="bg-gray-100 py-16 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-lime-600">What Our Customers Say</h2>
+            <div class="trustindex-container">
+                <script defer async src='https://cdn.trustindex.io/loader.js?82abd6f619ea5420903602a0be9'></script>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-8 mt-12 rounded-t-xl">
-        <div class="container mx-auto px-4">
-            <div class="mb-4">
-                <h3 class="text-lg font-bold mb-2">Follow Us!</h3>
-                <div class="flex justify-center space-x-6">
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/mgajunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12.315 2.541c.883 0 1.6.72 1.6 1.6s-.717 1.6-1.6 1.6c-.883 0-1.6-.72-1.6-1.6s.717-1.6 1.6-1.6zM22 6.541c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM19.4 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-10.4 4.8c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm-1.2 1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM11.6 19.4c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm1.2-1.2c-.667 0-1.2.533-1.2 1.2s.533 1.2 1.2 1.2h.8c.667 0 1.2-.533 1.2-1.2s-.533-1.2-1.2-1.2h-.8zM18.8 12c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-5.6-3.2c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zm3.2 0c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6c-.333 0-.6.267-.6.6s.267.6.6.6h.6zm-6.4 0c-.333 0-.6.267-.6.6s.267.6.6.6h.6c.333 0 .6-.267.6-.6s-.267-.6-.6-.6h-.6zM12 9.2c-1.54 0-2.8 1.26-2.8 2.8s1.26 2.8 2.8 2.8 2.8-1.26 2.8-2.8-1.26-2.8-2.8-2.8zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zM12 2.4c-5.289 0-9.6 4.311-9.6 9.6s4.311 9.6 9.6 9.6 9.6-4.311 9.6-9.6-4.311-9.6-9.6-9.6z" clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <!-- TikTok -->
-                    <a href="https://www.tiktok.com/@mgajunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12.5 0C12.5 0 12 1.5 12 2.5V12.7C12 13.5 12.5 14 13.5 14H15.8C16.6 14 17 13.5 17 12.7V6C17 5.2 16.5 4.5 15.5 4.5H14V0H12.5ZM6.5 10C6.5 10 7.5 11.5 7.5 12.5V20.7C7.5 21.5 8 22 9 22H11.3C12.1 22 12.5 21.5 12.5 20.7V14C12.5 13.2 12 12.5 11 12.5H9.5V10H6.5Z"></path>
-                        </svg>
-                    </a>
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/MGAJunkremoval" target="_blank" rel="noopener noreferrer" class="hover:text-lime-500 transition duration-300">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.35c0 .732.593 1.325 1.325 1.325h11.455v-9.293h-3.11v-3.627h3.11v-2.671c0-3.08 1.88-4.754 4.624-4.754 1.325 0 2.464.099 2.796.143v3.239h-1.921c-1.503 0-1.802.714-1.802 1.764v2.329h3.628l-.472 3.627h-3.156v9.293h6.115c.732 0 1.325-.593 1.325-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <p class="text-sm mt-4">&copy; 2024 MGA JunkRemoval. All rights reserved.</p>
-                    </div>
+    <footer class="bg-gray-800 text-white text-center py-8">
+        <p>&copy; 2024 MGA JunkRemoval. All rights reserved.</p>
     </footer>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Wrap the code in a DOMContentLoaded listener to ensure the page is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Global variables for Firebase services and user data
-            let db;
-            let auth;
-            let userId = null;
-
-            // --- LOCAL FIX: Use mock data for local development ---
-            let appId;
-            let firebaseConfig;
-            let initialAuthToken;
-
-            try {
-                // Check if the variables are defined by the development environment
-                appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-                firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
-                initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-            } catch (e) {
-                // Handle JSON parsing errors or undefined variables gracefully
-                console.error("Error with environment variables:", e);
-                // Set to null to trigger the local fallback
-                firebaseConfig = null;
-            }
-
-            // If environment variables are not available, use mock data
-            if (!firebaseConfig) {
-                console.log("Running in local development mode. Firebase features are disabled.");
-                // Use a mock configuration to prevent script errors
-                firebaseConfig = {
-                    apiKey: "mock_api_key",
-                    authDomain: "mock-project.firebaseapp.com",
-                    projectId: "mock-project",
-                    storageBucket: "mock-project.appspot.com",
-                    messagingSenderId: "123456789",
-                    appId: "1:123456789:web:abcdef"
-                };
-            }
-            // --- END OF LOCAL FIX ---
-
-            // Get DOM elements
-            const userIdDisplay = document.getElementById('userIdDisplay');
-            const menuButton = document.getElementById('menu-button');
-            const navLinks = document.getElementById('nav-links');
-
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-            setLogLevel('Debug'); // Enable debug logging for Firestore
-
-            // Handle user authentication
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    userId = user.uid;
-                    userIdDisplay.textContent = `User ID: ${userId}`;
-                } else {
-                    try {
-                        // Use a fallback to anonymous sign-in if the custom token is not available
-                        if (initialAuthToken) {
-                            await signInWithCustomToken(auth, initialAuthToken);
-                        } else {
-                            await signInAnonymously(auth);
-                        }
-                    } catch (error) {
-                        console.error("Firebase auth error:", error);
-                    }
-                }
-            });
-
-            // Toggle mobile menu visibility
-            menuButton.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        });
-    </script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-                       // Photo gallery logic for the About Us section
-            const galleryImages = document.querySelectorAll('#photo-gallery-background img');
-            let currentImageIndex = 0;
-
-            function changeImage() {
-                // Hide the current image
-                galleryImages[currentImageIndex].style.opacity = '0';
-
-                // Increment index, looping back to 0 if at the end
-                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-
-                // Show the next image
-                galleryImages[currentImageIndex].style.opacity = '1';
-            }
-
-            // Initially show the first image
-            if (galleryImages.length > 0) {
-                galleryImages[0].style.opacity = '1';
-            }
-
-            // Change image every 5 seconds
-            setInterval(changeImage, 5000);
+        // Script simple para el menú móvil
+        const menuButton = document.getElementById('menu-button');
+        const navLinks = document.getElementById('nav-links');
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
         });
+
+        // Script para la galería del About Us
+        const galleryImages = document.querySelectorAll('#photo-gallery-background img');
+        let currentImageIndex = 0;
+        setInterval(() => {
+            galleryImages[currentImageIndex].style.opacity = '0';
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            galleryImages[currentImageIndex].style.opacity = '1';
+        }, 5000);
     </script>
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6959f2cdafb7451974fa689c/1je3losr9';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-    <div id="promoPopup" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-80 hidden">
-    <div class="relative max-w-[90%] md:max-w-md bg-white rounded-2xl overflow-hidden shadow-2xl transform transition-all">
-        
-        <button onclick="closePopup()" class="absolute top-3 right-3 bg-gray-900 bg-opacity-50 hover:bg-opacity-100 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold z-50 transition duration-300">
-            &times;
-        </button>
-        
-        <div class="cursor-pointer" onclick="window.location.href='tel:+13468038094'">
-            <img src="1000240508.png" alt="Financing Available - MGA JunkRemoval" class="w-full h-auto block">
-        </div>
-
-        <div class="bg-lime-500 p-4 text-center">
-            <a href="tel:+13468038094" class="text-gray-900 font-extrabold text-xl flex items-center justify-center space-x-2">
-                <span>📞</span>
-                <span>CALL NOW TO APPLY</span>
-            </a>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Función para mostrar el popup después de 3 segundos
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            const popup = document.getElementById('promoPopup');
-            if(popup) {
-                popup.classList.remove('hidden');
-            }
-        }, 3000); // 3 segundos de espera
-    });
-
-    // Función para cerrar el popup manualmente
-    function closePopup() {
-        document.getElementById('promoPopup').classList.add('hidden');
-    }
-
-    // Cerrar también si el usuario hace clic en el fondo oscuro
-    window.addEventListener('click', function(event) {
-        const popup = document.getElementById('promoPopup');
-        if (event.target == popup) {
-            closePopup();
-        }
-    });
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
