@@ -237,8 +237,7 @@
             imgs[idx].style.opacity = '1';
         }, 5000);
     </script>
-
-    <script type="text/javascript">
+<script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -246,111 +245,102 @@
         s0.parentNode.insertBefore(s1,s0);
         })();
     </script>
-    <div id="promoPopup" class="fixed inset-0 z-[100] hidden overflow-y-auto bg-black font-sans">
-    <button onclick="closePopup()" class="fixed top-5 right-5 z-[110] bg-white text-black rounded-full w-12 h-12 flex items-center justify-center text-3xl font-bold shadow-2xl border-2 border-black">&times;</button>
-    
-  <div id="promoPopup" class="fixed inset-0 z-[100] hidden bg-black font-sans">
-    <button onclick="closePopup()" class="fixed top-4 right-4 z-[110] bg-white text-black rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold shadow-2xl">&times;</button>
-    
-    <div class="relative h-screen w-full overflow-hidden flex flex-col">
-        <style>
-            #promoPopup .background-img {
-                position: absolute; inset: 0;
-                background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/e29305577_MGAantesydespues.png');
-                background-size: cover; background-position: center;
-            }
-            #promoPopup .background-img::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
-            
-            #promoPopup .main-content { 
-                position: relative; z-index: 10; 
-                height: 100%; display: flex; flex-direction: column; 
-                justify-content: space-between; align-items: center; 
-                padding: 2rem 1rem; color: white;
-            }
 
-            #promoPopup .title-area { text-align: center; margin-top: 1rem; }
-            #promoPopup .financing-title { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 900; line-height: 0.9; }
-            #promoPopup .financing-color { color: #9ACD32; }
-
-            #promoPopup .logo-area { 
-                background: white; border-radius: 1rem; padding: 1rem; 
-                box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
-                max-width: 85%; width: auto;
-            }
-            #promoPopup .logo-area img { max-height: 25vh; width: auto; display: block; }
-
-            #promoPopup .tagline-area { 
-                background: rgba(255,255,255,0.9); padding: 0.6rem 1.2rem; 
-                border-radius: 0.5rem; color: #111827; font-weight: 800; 
-                text-align: center; font-size: 0.9rem;
-            }
-
-            #promoPopup .bottom-cta { 
-                width: 100%; background: #9ACD32; 
-                padding: 1.2rem 1rem; border-radius: 1.5rem 1.5rem 0 0;
-            }
-            #promoPopup .call-btn { 
-                display: flex; align-items: center; justify-content: center; 
-                gap: 0.5rem; border: 3px solid #111827; color: #111827; 
-                padding: 0.7rem; border-radius: 0.75rem; font-weight: 900; 
-                text-decoration: none; font-size: 1.25rem;
-            }
-        </style>
-
-        <div class="background-img"></div>
+    <div id="promoPopup" class="fixed inset-0 z-[100] hidden bg-black font-sans">
+        <button onclick="closePopup()" class="fixed top-4 right-4 z-[110] bg-white text-black rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold shadow-2xl border-2 border-black">&times;</button>
         
-        <div class="main-content">
-            <div class="title-area">
-                <h1 class="financing-title">
-                    <span class="financing-color">FINANCING</span><br>
-                    <span>AVAILABLE</span>
-                </h1>
-            </div>
+        <div class="relative h-screen w-full overflow-hidden flex flex-col">
+            <style>
+                #promoPopup .background-img {
+                    position: absolute; inset: 0;
+                    background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/e29305577_MGAantesydespues.png');
+                    background-size: cover; background-position: center;
+                }
+                #promoPopup .background-img::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
+                
+                #promoPopup .main-content { 
+                    position: relative; z-index: 10; 
+                    height: 100%; display: flex; flex-direction: column; 
+                    justify-content: space-between; align-items: center; 
+                    padding: 2rem 1rem; color: white;
+                }
+                #promoPopup .title-area { text-align: center; margin-top: 1rem; }
+                #promoPopup .financing-title { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 900; line-height: 0.9; }
+                #promoPopup .financing-color { color: #9ACD32; }
+                #promoPopup .logo-area { 
+                    background: white; border-radius: 1rem; padding: 1rem; 
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
+                    max-width: 85%; width: auto;
+                }
+                #promoPopup .logo-area img { max-height: 25vh; width: auto; display: block; }
+                #promoPopup .tagline-area { 
+                    background: rgba(255,255,255,0.9); padding: 0.6rem 1.2rem; 
+                    border-radius: 0.5rem; color: #111827; font-weight: 800; 
+                    text-align: center; font-size: 0.9rem;
+                }
+                #promoPopup .bottom-cta { 
+                    width: 100%; background: #9ACD32; 
+                    padding: 1.2rem 1rem; border-radius: 1.5rem 1.5rem 0 0;
+                }
+                #promoPopup .call-btn { 
+                    display: flex; align-items: center; justify-content: center; 
+                    gap: 0.5rem; border: 3px solid #111827; color: #111827; 
+                    padding: 0.7rem; border-radius: 0.75rem; font-weight: 900; 
+                    text-decoration: none; font-size: 1.25rem;
+                }
+            </style>
 
-            <div class="logo-area">
-                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/4ed65fd4f_LOGOMGAFONDOLANDSCAPE.png" alt="MGA Logo">
-            </div>
+            <div class="background-img"></div>
+            
+            <div class="main-content">
+                <div class="title-area">
+                    <h1 class="financing-title">
+                        <span class="financing-color">FINANCING</span><br>
+                        <span>AVAILABLE</span>
+                    </h1>
+                </div>
 
-            <div class="tagline-area">
-                RECLAIM YOUR SPACE TODAY! ASK ABOUT OUR PLANS
-            </div>
+                <div class="logo-area">
+                    <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/4ed65fd4f_LOGOMGAFONDOLANDSCAPE.png" alt="MGA Logo">
+                </div>
 
-            <div class="bottom-cta text-center">
-                <h3 class="text-black font-black text-lg uppercase italic mb-2 leading-none">Big Projects, Small Payments</h3>
-                <a href="tel:3468038094" class="call-btn">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.36 11.36 0 004.48.9 1 1 0 011 1v3.49a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.9 4.48 1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
-                    CALL NOW TO APPLY
-                </a>
+                <div class="tagline-area">
+                    RECLAIM YOUR SPACE TODAY! ASK ABOUT OUR PLANS
+                </div>
+
+                <div class="bottom-cta text-center">
+                    <h3 class="text-black font-black text-lg uppercase italic mb-2 leading-none">Big Projects, Small Payments</h3>
+                    <a href="tel:3468038094" class="call-btn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.36 11.36 0 004.48.9 1 1 0 011 1v3.49a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.9 4.48 1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
+                        CALL NOW TO APPLY
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
     <script>
-        // Función para mostrar el Landing Page a los 3 segundos
+        // Control del Popup
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const popup = document.getElementById('promoPopup');
                 if(popup) {
                     popup.classList.remove('hidden');
-                    // Bloqueamos el scroll de la web principal mientras el landing está activo
                     document.body.style.overflow = 'hidden'; 
                 }
-            }, 3000); // 3000ms = 3 segundos
+            }, 3000); 
         });
 
-        // Función para cerrar el Landing Page
         function closePopup() {
             const popup = document.getElementById('promoPopup');
             if(popup) {
                 popup.classList.add('hidden');
-                // Devolvemos el scroll a la página principal
                 document.body.style.overflow = 'auto'; 
             }
         }
     </script>
 </body>
 </html>
-
 
 
 
