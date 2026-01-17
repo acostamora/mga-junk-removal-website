@@ -3,190 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MGA JunkRemoval LLC offers professional junk removal in Houston and Pearland.">
-    <title>MGA JunkRemoval LLC | Professional Services</title>
+  <meta name="description" content="MGA JunkRemoval LLC offers professional, licensed junk removal, garage cleanouts, and estate clearing in Houston and Pearland. Fully insured. Call 346-803-8094!">
+   <title>MGA JunkRemoval LLC | Professional Junk Removal in Pearland & Houston</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #1e293b; }
-        
-        /* Slider del Header */
-        .hero-slide { opacity: 0; transition: opacity 1.2s ease-in-out; }
-        .active-slide { opacity: 1 !important; z-index: 10; }
-        
-        /* Galería de fondo en About Us */
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .hero {
+            background-color: #2d3436; 
+            background-image: linear-gradient(rgba(45, 52, 54, 0.7), rgba(45, 52, 54, 0.7)), url('truck and trailer.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            .nav-menu.active { display: flex; }
+        }
+        #about { position: relative; overflow: hidden; color: white; }
+        #photo-gallery-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         #photo-gallery-background img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out; }
-        
-        /* Animaciones */
-        .btn-hover { transition: all 0.3s ease; }
-        .btn-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -5px rgba(163, 230, 53, 0.5); }
-        
+        #about-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1; }
+        #about-content { position: relative; z-index: 2; }
         @keyframes pulse-green { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
         .animate-pulse-green { animation: pulse-green 2s infinite ease-in-out; }
-
-        .nav-menu.active { display: flex !important; }
     </style>
 </head>
-<body>
+<body class="text-gray-800">
 
-    <nav class="bg-white border-b border-gray-100 sticky top-0 z-[100] py-4">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <a href="#" class="block">
-                <img src="logo-mga.jpg" alt="MGA JunkRemoval" class="h-24 md:h-32 w-auto drop-shadow-sm">
-            </a>
-            
-            <div id="nav-links" class="hidden md:flex items-center space-x-8 font-bold text-gray-700">
-                <a href="#services" class="hover:text-lime-600 transition">Services</a>
-                <a href="#about" class="hover:text-lime-600 transition">About Us</a>
-                <a href="#reviews" class="hover:text-lime-600 transition">Reviews</a>
-                <a href="tel:3468038094" class="bg-lime-500 text-gray-900 px-8 py-3 rounded-full btn-hover">CALL 346-803-8094</a>
+    <nav class="bg-white shadow-md rounded-b-xl py-2 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center relative h-16 md:h-20">
+            <div class="flex items-center">
+                <a href="#" class="absolute top-0 left-4 md:left-8">
+                    <img src="logo-mga.jpg" alt="MGA JunkRemoval Logo" class="h-20 md:h-32 w-auto object-contain drop-shadow-lg">
+                </a>
             </div>
-            
-            <button id="menu-button" class="md:hidden text-gray-900 p-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+
+            <div class="md:hidden">
+                <button id="menu-button" class="text-gray-900 focus:outline-none p-2 bg-gray-100 rounded-lg">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+
+            <div id="nav-links" class="nav-menu md:flex md:items-center space-x-0 md:space-x-8">
+                <a href="#services" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-bold">Our Services</a>
+                <a href="#about" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-bold">About Us</a>
+                <a href="#reviews" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-bold">Reviews</a>
+                <a href="#contact" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-bold">Contact Us</a>
+                <a href="sms:+13468038094" class="bg-lime-500 hover:bg-lime-600 text-gray-900 font-extrabold py-2 px-6 rounded-full shadow-md mt-2 md:mt-0 text-center">TEXT NOW</a>
+            </div>
         </div>
     </nav>
 
-    <header class="relative h-[550px] md:h-[650px] overflow-hidden">
-        <div class="absolute inset-0 hero-slide active-slide" id="slide1">
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('truck and trailer.jpg');"></div>
-            <div class="relative z-20 h-full container mx-auto px-6 flex flex-col justify-center items-center text-center">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">MGA Junk Removal</h1>
-                <p class="text-white text-xl md:text-2xl mb-8 max-w-2xl font-light italic">Your #1 Choice in Pearland & Houston. Fast, Friendly, and Reliable.</p>
-                <a href="tel:3468038094" class="bg-lime-500 text-gray-900 px-10 py-5 rounded-2xl font-black text-2xl animate-pulse-green shadow-xl">346-803-8094</a>
+   <header class="relative h-[500px] md:h-[600px] overflow-hidden rounded-b-xl text-white">
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out z-10 hero-slide active-slide" id="slide1">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative h-full container mx-auto px-4 flex flex-col justify-center items-center text-center">
+                <div class="bg-gray-800/70 p-6 rounded-xl max-w-lg">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">MGA Junk Removal</h1>
+                    <p class="text-lg md:text-2xl mb-8 font-light">Your #1 Choice in Pearland & Houston. Fast, Friendly, and Reliable.</p>
+                    <div class="bg-lime-500 p-4 rounded-xl shadow-lg">
+                        <a href="tel:+13468038094" class="text-gray-900 font-bold flex flex-col items-center animate-pulse-green">
+                            <span class="text-3xl md:text-4xl font-extrabold">346-803-8094</span>
+                            <span class="text-sm font-semibold uppercase">Call for a Free Quote</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="absolute inset-0 hero-slide" id="slide2">
-            <div class="absolute inset-0 bg-black/70 z-10"></div>
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/e29305577_MGAantesydespues.png');"></div>
-            <div class="relative z-20 h-full container mx-auto px-6 flex flex-col justify-center items-center text-center">
-                <div class="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20">
-                    <h2 class="text-5xl md:text-6xl font-black text-lime-400 mb-4">FINANCING AVAILABLE</h2>
-                    <p class="text-white text-xl mb-8">Big Projects, Small Payments. Reclaim your space today!</p>
-                    <a href="tel:3468038094" class="bg-white text-gray-900 px-10 py-4 rounded-xl font-bold text-lg btn-hover">APPLY NOW</a>
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 hero-slide" id="slide2">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/e29305577_MGAantesydespues.png');"></div>
+            <div class="relative h-full container mx-auto px-4 flex flex-col justify-center items-center text-center">
+                <div class="bg-lime-500 text-gray-900 p-8 rounded-2xl max-w-lg shadow-2xl border-4 border-white">
+                    <h2 class="text-4xl md:text-5xl font-black mb-2 italic">FINANCING AVAILABLE</h2>
+                    <p class="text-xl font-bold mb-6">Big Projects, Small Payments. Reclaim your space today!</p>
+                    <a href="tel:3468038094" class="bg-gray-900 text-white py-3 px-8 rounded-full font-black text-lg hover:bg-black transition">APPLY NOW</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="partnerships" class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-lime-600 font-bold uppercase tracking-widest text-sm">Priority Transition Services</span>
-                    <h2 class="text-4xl font-extrabold text-gray-900 mt-4 mb-6 leading-tight">Priority Services for Senior Living & Real Estate Professionals.</h2>
-                    <p class="text-gray-500 text-lg mb-8 leading-relaxed">We offer a specialized, respectful, and fast-track solution for transition managers and families.</p>
-                    <a href="tel:3468038094" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-2xl font-bold btn-hover">REQUEST PRIORITY SERVICE</a>
+    <style>
+        .active-slide { opacity: 1 !important; z-index: 20 !important; }
+        .hero-slide { background-color: #2d3436; }
+    </style>
+<section id="partnerships" class="py-20 bg-white px-4 border-t border-gray-100">
+    <div class="container mx-auto max-w-6xl">
+        
+        <span class="hidden">Senior clean-out Pearland, Estate removal Houston, Real estate junk removal services</span>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div>
+                <div class="inline-flex items-center space-x-2 bg-lime-100 text-lime-700 px-3 py-1 rounded-full text-sm font-bold mb-4">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0z"></path></svg>
+                    <span>Priority Transition Services</span>
                 </div>
-                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-sm relative">
-                    <h3 class="text-2xl font-bold mb-4">Become a Professional Partner</h3>
-                    <p class="text-gray-600 mb-8">Exclusive rates for Property Managers & Realtors in Pearland.</p>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center mb-6">
-                        <p class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-widest">Partner Line</p>
-                        <a href="tel:3468038094" class="text-3xl font-black text-lime-600">346-803-8094</a>
+                
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+                    Priority Services for Senior Living & Real Estate Professionals.
+                </h2>
+                
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    We offer a specialized, respectful, and fast-track solution for transition managers and families. Whether it’s a room clean-out at a senior facility or a last-minute estate clearing for a realtor, we provide 24-48h priority scheduling.
+                </p>
+
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center text-white">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <p class="text-gray-700 font-medium"><span class="font-bold">Priority Response:</span> Tailored for the high-turnover needs of senior communities.</p>
                     </div>
-                    <a href="sms:+13468038094" class="block text-center border-2 border-gray-900 py-4 rounded-2xl font-bold hover:bg-gray-900 hover:text-white transition">GET AN ESTIMATE</a>
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center text-white">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <p class="text-gray-700 font-medium"><span class="font-bold">Donation-First Approach:</span> We give back to the community by donating usable items.</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center text-white">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <p class="text-gray-700 font-medium"><span class="font-bold">Fully Insured & Professional:</span> General Liability coverage for your total peace of mind.</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center text-white">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <p class="text-gray-700 font-medium"><span class="font-bold">White-Glove Care:</span> We protect the facility’s floors and walls during every job.</p>
+                    </div>
                 </div>
+
+                <a href="tel:3468038094" class="inline-block bg-lime-500 hover:bg-lime-600 text-gray-900 font-extrabold py-4 px-10 rounded-xl shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    REQUEST PRIORITY SERVICE
+                </a>
+            </div>
+
+            <div class="bg-gray-50 border-2 border-dashed border-lime-500 p-8 rounded-3xl relative">
+                <div class="absolute -top-5 left-8 bg-gray-900 text-white px-6 py-2 rounded-lg font-bold">
+                    Become a Professional Partner
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-4">For Property Managers & Realtors</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Are you a Property Manager, Senior Living Director, or Realtor? Contact us for our exclusive partner rates and priority emergency dispatch.
+                </p>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-6 text-center">
+                    <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Dedicated Partner Line</p>
+                    <a href="tel:3468038094" class="text-3xl font-black text-lime-600 hover:text-lime-700 transition">346-803-8094</a>
+                </div>
+
+                <a href="sms:+13468038094" class="block text-center border-2 border-gray-900 text-gray-900 font-bold py-3 px-6 rounded-xl hover:bg-gray-900 hover:text-white transition duration-300">
+                    GET A PARTNER ESTIMATE
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="services" class="py-16 md:py-24 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Furniture & Appliance Removal.jpg" alt="Furniture and appliance removal services in Pearland and Houston TX" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Furniture & Appliance Removal</h3>
+                    <p class="text-gray-600">Removal of large and bulky furniture like couches, beds, and major appliances.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" alt="Professional garage and attic cleanout services in Houston Texas" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Garage, Basement & Attic Cleanouts</h3>
+                    <p class="text-gray-600">A comprehensive service to clear out cluttered spaces like garages or attics.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Construction Debris Removal.jpg" alt="Construction debris and renovation waste removal in Sugar Land and Pearland" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Construction Debris Removal</h3>
+                    <p class="text-gray-600">Collection and disposal of materials like wood, drywall, and renovation waste.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Yard Waste & Green Debris Removal.jpg" alt="Yard waste and green debris removal services in Pasadena and Houston" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Yard Waste & Green Debris Removal</h3>
+                    <p class="text-gray-600">Removal of branches, leaves, grass clippings, and landscaping waste.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Electronics Waste (E-Waste) Disposal.jpg" alt="Eco-friendly electronics and E-waste disposal in Pearland TX" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Electronics Waste (E-Waste) Disposal</h3>
+                    <p class="text-gray-600">Responsible disposal of computers, printers, TVs, and phones.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
+                    <img src="Special Hazardous Items Removal.jpg" alt="Special and hazardous item removal professionals in Houston area" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Special / Hazardous Item Removal</h3>
+                    <p class="text-gray-600">Handling of items that require special care due to their composition.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 bg-slate-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-extrabold mb-16">Our Specialized Services</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
-                    <img src="Furniture & Appliance Removal.jpg" class="w-full h-48 object-cover rounded-2xl mb-6">
-                    <h3 class="text-xl font-bold mb-3">Furniture Removal</h3>
-                    <p class="text-gray-500">Fast removal of bulky furniture and major appliances.</p>
-                </div>
-                <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
-                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" class="w-full h-48 object-cover rounded-2xl mb-6">
-                    <h3 class="text-xl font-bold mb-3">Full Cleanouts</h3>
-                    <p class="text-gray-500">Garages, basements, and attic decluttering experts.</p>
-                </div>
-                <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
-                    <img src="Construction Debris Removal.jpg" class="w-full h-48 object-cover rounded-2xl mb-6">
-                    <h3 class="text-xl font-bold mb-3">Construction Debris</h3>
-                    <p class="text-gray-500">Collection of renovation materials and debris.</p>
-                </div>
-                </div>
-        </div>
-    </section>
-
-    <section id="about" class="relative py-32 overflow-hidden min-h-[600px] flex items-center">
-        <div id="photo-gallery-background" class="absolute inset-0">
+   <section id="about" class="py-16 md:py-24 px-4">
+        <div id="photo-gallery-background">
             <img src="2.jpg" style="opacity:1"><img src="4.jpg"><img src="1.jpg"><img src="3.jpg">
         </div>
-        <div class="absolute inset-0 bg-black/70"></div>
-        <div class="container mx-auto px-6 relative z-20 text-center max-w-4xl">
-            <h2 class="text-5xl font-extrabold text-lime-400 mb-8">Your Trusted Partners</h2>
-            <p class="text-white text-xl md:text-2xl leading-relaxed mb-8">At <span class="text-lime-400 font-bold">MGA JunkRemoval LLC</span>, we are a family-owned, licensed and insured business built on integrity and hard work.</p>
-            <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-white font-bold">
-                Reliability • Transparency • Professionalism
+        <div id="about-overlay"></div>
+        <div id="about-content" class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-lime-500">Your Trusted Partners in Reclaiming Your Space</h2>
+            
+            <div class="space-y-6 text-lg md:text-xl leading-relaxed text-gray-100 font-medium text-pretty">
+                <p>
+    At <span class="font-bold text-lime-500">MGA JunkRemoval LLC</span>, we are more than just a hauling service; we are a family-owned and <span class="text-white border-b border-lime-500">fully licensed and insured</span> business built on the values of hard work, integrity, and community service. Based in the heart of Texas, we have dedicated ourselves to helping homeowners and businesses in Houston, Pearland, and surrounding areas transform cluttered environments into clean, functional spaces with professional legal backing.
+</p>
+                
+                <p>
+                    We understand that clearing out a property can be overwhelming. Whether it’s a garage filled with years of memories, debris from a renovation, or old appliances taking up room, our mission is to make the process completely stress-free. We provide a professional, full-service experience where our team handles all the heavy lifting, loading, and responsible disposal.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
+                    <div class="bg-black bg-opacity-40 backdrop-blur-sm p-4 rounded-xl border border-lime-500/30">
+                        <h4 class="font-bold text-lime-500 mb-2">Reliability</h4>
+                        <p class="text-sm">We show up on time and ready to work.</p>
+                    </div>
+                    <div class="bg-black bg-opacity-40 backdrop-blur-sm p-4 rounded-xl border border-lime-500/30">
+                        <h4 class="font-bold text-lime-500 mb-2">Transparency</h4>
+                        <p class="text-sm">No hidden fees. Honest, upfront pricing.</p>
+                    </div>
+                    <div class="bg-black bg-opacity-40 backdrop-blur-sm p-4 rounded-xl border border-lime-500/30">
+                        <h4 class="font-bold text-lime-500 mb-2">Professionalism</h4>
+                        <p class="text-sm">A respectful crew that treats your property as their own.</p>
+                    </div>
+                </div>
+
+                <p>
+                    We believe in doing our part for the planet. We sort through every load to identify items that can be donated to local charities or recycled, minimizing waste and giving back to the community that has supported us.
+                </p>
+
+                <p class="text-2xl font-bold text-lime-500 italic mt-8">
+                    "Big or small, we haul it all. Let our family take care of yours!"
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="reviews" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-extrabold text-center mb-16">Client Testimonials</h2>
-            <div id="featurable-5d07d2bb-7b16-4cfc-b80e-55936d850198" data-featurable-async></div>
-            <script src="https://featurable.com/assets/bundle.js" defer></script>
+ <section id="reviews" class="py-16 bg-gray-50 border-t">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">What Our Clients Say</h2>
+                <p class="text-gray-600 mt-2">Trusted by families and professionals in Pearland & Houston</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div id="featurable-5d07d2bb-7b16-4cfc-b80e-55936d850198" data-featurable-async></div>
+                <script src="https://featurable.com/assets/bundle.js" defer charset="UTF-8"></script>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-white border-t">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Areas We Serve</h2>
+            <div class="flex flex-wrap justify-center gap-3 text-xs md:text-base font-bold text-gray-800">
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Houston</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Pearland</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Sugar Land</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Missouri City</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Pasadena</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Friendswood</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 League City</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Alvin</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Katy</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 The Woodlands</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Cypress</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Kingwood</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Humble</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Baytown</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Clear Lake</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Richmond</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Rosenberg</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Webster</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Tomball</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Conroe</span>
+                <span class="bg-white px-4 py-2 rounded-lg border border-lime-500 shadow-sm">📍 Texas City</span>
+            </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-900 text-white py-20 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-8 italic">Ready to reclaim your space?</h2>
-            <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
-                <a href="tel:3468038094" class="bg-lime-500 text-gray-900 px-10 py-5 rounded-2xl font-black text-xl btn-hover">CALL 346-803-8094</a>
-                <a href="sms:+13468038094" class="bg-white text-gray-900 px-10 py-5 rounded-2xl font-black text-xl btn-hover">TEXT PHOTOS</a>
+    <section id="contact" class="py-16 bg-gray-800 text-white text-center">
+        <h2 class="text-3xl font-bold mb-6">Contact Us Today</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+            <a href="tel:346-803-8094" class="bg-lime-500 text-gray-900 font-bold py-3 px-8 rounded-full">Call: 346-803-8094</a>
+            <a href="mailto:acosta.mora@gmail.com" class="bg-lime-500 text-gray-900 font-bold py-3 px-8 rounded-full">Email Us</a>
+        </div>
+    </section>
+
+   <footer class="bg-gray-900 text-white text-center py-10 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="mb-6 flex justify-center space-x-8">
+                <a href="https://www.instagram.com/mgajunkremoval" target="_blank" class="hover:text-lime-500 transition-colors">
+                    <span class="sr-only">Instagram</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/MGAJunkremoval" target="_blank" class="hover:text-lime-500 transition-colors">
+                    <span class="sr-only">Facebook</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@mgajunkremoval" target="_blank" class="hover:text-lime-500 transition-colors">
+                    <span class="sr-only">TikTok</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-4.17.07-8.33.07-12.5z"/></svg>
+                </a>
             </div>
-            <p class="text-gray-500">© 2026 MGA JunkRemoval LLC. Serving Pearland & Houston Area.</p>
+
+            <div class="space-y-2">
+                <p class="text-sm font-semibold tracking-wide text-gray-300">
+                    &copy; 2026 MGA JunkRemoval LLC.
+                </p>
+                <p class="text-xs text-gray-500 uppercase tracking-widest">
+                    Fully Licensed & Insured • Pearland, TX
+                </p>
+            </div>
         </div>
     </footer>
 
-    <div id="promoPopup" class="fixed inset-0 z-[200] hidden bg-black flex items-center justify-center">
-        <button onclick="closePopup()" class="absolute top-4 right-4 z-[210] bg-white text-black rounded-full w-12 h-12 text-3xl font-bold">×</button>
-        <div class="text-center text-white px-6">
-            <h2 class="text-5xl font-black mb-4">FINANCING AVAILABLE</h2>
-            <img src="logo-mga.jpg" class="h-32 mx-auto bg-white p-4 rounded-xl">
-        </div>
-    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        // Tu config de Firebase...
+    </script>
 
     <script>
         // Menu Móvil
         const menuBtn = document.getElementById('menu-button');
-        const navLinks = document.getElementById('nav-links');
-        menuBtn.onclick = () => navLinks.classList.toggle('active');
-
-        // Header Slider
-        let currentS = 1;
-        setInterval(() => {
-            document.getElementById(`slide${currentS}`).classList.remove('active-slide');
-            currentS = (currentS === 1) ? 2 : 1;
-            document.getElementById(`slide${currentS}`).classList.add('active-slide');
-        }, 5000);
+        const navLks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => navLks.classList.toggle('active'));
 
         // Galería About Us
         const imgs = document.querySelectorAll('#photo-gallery-background img');
         let idx = 0;
+        if(imgs.length > 0) imgs[0].style.opacity = '1';
         setInterval(() => {
             imgs[idx].style.opacity = '0';
             idx = (idx + 1) % imgs.length;
             imgs[idx].style.opacity = '1';
         }, 5000);
-
-        // Popup
-        function closePopup() { document.getElementById('promoPopup').classList.add('hidden'); }
-        window.onload = () => { setTimeout(() => { document.getElementById('promoPopup').classList.remove('hidden'); }, 3000); };
     </script>
-    
-    <script type="text/javascript">
+<script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -194,6 +369,108 @@
         s0.parentNode.insertBefore(s1,s0);
         })();
     </script>
+<div id="promoPopup" class="fixed inset-0 z-[100] hidden bg-black font-sans">
+        <button onclick="closePopup()" class="fixed top-4 right-4 z-[110] bg-white text-black rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold shadow-2xl border-2 border-black">&times;</button>
+        
+        <div class="relative h-screen w-full overflow-hidden flex flex-col">
+            <style>
+                #promoPopup .background-img {
+                    position: absolute; inset: 0;
+                    background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/e29305577_MGAantesydespues.png');
+                    background-size: cover; background-position: center;
+                }
+                #promoPopup .background-img::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
+                
+                #promoPopup .main-content { 
+                    position: relative; z-index: 10; 
+                    height: 100%; display: flex; flex-direction: column; 
+                    justify-content: space-evenly; align-items: center; 
+                    padding: 2rem 1rem; color: white;
+                }
+                #promoPopup .title-area { text-align: center; }
+                #promoPopup .financing-title { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 900; line-height: 0.9; }
+                #promoPopup .financing-color { color: #9ACD32; }
+                
+                #promoPopup .logo-area { 
+                    background: white; border-radius: 1rem; padding: 1rem; 
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
+                    max-width: 85%; width: auto;
+                }
+                #promoPopup .logo-area img { max-height: 22vh; width: auto; display: block; }
 
+                /* Cajas flotantes (Tagline y Botón) con el mismo estilo */
+                #promoPopup .floating-card { 
+                    background: rgba(255,255,255,0.95); padding: 0.8rem 1.2rem; 
+                    border-radius: 0.75rem; color: #111827; font-weight: 800; 
+                    text-align: center; font-size: 0.9rem;
+                    width: 90%; max-width: 400px;
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+                }
+
+                #promoPopup .green-card {
+                    background: #9ACD32;
+                    color: #111827;
+                    padding: 1.2rem;
+                }
+
+                #promoPopup .call-btn { 
+                    display: flex; align-items: center; justify-content: center; 
+                    gap: 0.5rem; border: 3px solid #111827; color: #111827; 
+                    padding: 0.7rem; border-radius: 0.75rem; font-weight: 900; 
+                    text-decoration: none; font-size: 1.2rem;
+                    margin-top: 0.5rem;
+                }
+            </style>
+
+            <div class="background-img"></div>
+            
+            <div class="main-content">
+                <div class="title-area">
+                    <h1 class="financing-title">
+                        <span class="financing-color">FINANCING</span><br>
+                        <span>AVAILABLE</span>
+                    </h1>
+                </div>
+
+                <div class="logo-area">
+                    <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/4ed65fd4f_LOGOMGAFONDOLANDSCAPE.png" alt="MGA Logo">
+                </div>
+
+                <div class="floating-card">
+                    RECLAIM YOUR SPACE TODAY! ASK ABOUT OUR PLANS
+                </div>
+
+                <div class="floating-card green-card">
+                    <h3 class="font-black text-lg uppercase italic mb-2 leading-none">Big Projects, Small Payments</h3>
+                    <a href="tel:3468038094" class="call-btn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.36 11.36 0 004.48.9 1 1 0 011 1v3.49a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.9 4.48 1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
+                        CALL NOW TO APPLY
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Control del Popup
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const popup = document.getElementById('promoPopup');
+                if(popup) {
+                    popup.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; 
+                }
+            }, 3000); 
+        });
+
+        function closePopup() {
+            const popup = document.getElementById('promoPopup');
+            if(popup) {
+                popup.classList.add('hidden');
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+    </script>
 </body>
 </html>
+
+
