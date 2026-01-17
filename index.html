@@ -66,20 +66,39 @@
         </div>
     </nav>
 
-    <header class="hero text-white text-center py-20 md:py-32 rounded-b-xl">
-        <div class="container mx-auto px-4 flex flex-col justify-center items-center h-full">
-            <div class="bg-gray-800 bg-opacity-70 p-6 sm:p-8 rounded-xl max-w-lg w-full">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Financing Available</h1>
-                <p class="text-lg md:text-2xl mb-8 font-light">It's time to reclaim your space. We make it easy.</p>
-                <div class="bg-lime-500 p-4 sm:p-6 rounded-xl shadow-lg">
-                    <a href="tel:+13468038094" class="text-gray-900 font-bold py-2 px-4 flex flex-col items-center animate-pulse-green">
-                        <span class="text-3xl md:text-4xl font-extrabold tracking-tight">346-803-8094</span>
-                        <span class="mt-1 text-sm md:text-base font-semibold">CALL NOW FOR QUOTE</span>
-                    </a>
+   <header class="relative h-[500px] md:h-[600px] overflow-hidden rounded-b-xl text-white">
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out z-10 hero-slide active-slide" id="slide1">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative h-full container mx-auto px-4 flex flex-col justify-center items-center text-center">
+                <div class="bg-gray-800/70 p-6 rounded-xl max-w-lg">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">MGA Junk Removal</h1>
+                    <p class="text-lg md:text-2xl mb-8 font-light">Your #1 Choice in Pearland & Houston. Fast, Friendly, and Reliable.</p>
+                    <div class="bg-lime-500 p-4 rounded-xl shadow-lg">
+                        <a href="tel:+13468038094" class="text-gray-900 font-bold flex flex-col items-center animate-pulse-green">
+                            <span class="text-3xl md:text-4xl font-extrabold">346-803-8094</span>
+                            <span class="text-sm font-semibold uppercase">Call for a Free Quote</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 hero-slide" id="slide2">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/e29305577_MGAantesydespues.png');"></div>
+            <div class="relative h-full container mx-auto px-4 flex flex-col justify-center items-center text-center">
+                <div class="bg-lime-500 text-gray-900 p-8 rounded-2xl max-w-lg shadow-2xl border-4 border-white">
+                    <h2 class="text-4xl md:text-5xl font-black mb-2 italic">FINANCING AVAILABLE</h2>
+                    <p class="text-xl font-bold mb-6">Big Projects, Small Payments. Reclaim your space today!</p>
+                    <a href="tel:3468038094" class="bg-gray-900 text-white py-3 px-8 rounded-full font-black text-lg hover:bg-black transition">APPLY NOW</a>
                 </div>
             </div>
         </div>
     </header>
+
+    <style>
+        .active-slide { opacity: 1 !important; z-index: 20 !important; }
+        .hero-slide { background-color: #2d3436; }
+    </style>
 <section id="partnerships" class="py-20 bg-white px-4 border-t border-gray-100">
     <div class="container mx-auto max-w-6xl">
         
@@ -453,6 +472,7 @@
     </script>
 </body>
 </html>
+
 
 
 
