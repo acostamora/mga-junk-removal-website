@@ -101,6 +101,37 @@
             </div>
         </div>
     </header>
+    <section id="about" class="py-20 bg-gray-900 text-white overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full border-4 border-lime-500 rounded-3xl"></div>
+                    <img src="truck and trailer.jpg" alt="MGA Junk Removal Team" class="relative z-10 rounded-3xl shadow-2xl w-full h-[450px] object-cover">
+                </div>
+            </div>
+            <div class="lg:w-1/2 space-y-6">
+                <h2 class="text-4xl md:text-5xl font-black text-lime-500 italic uppercase">Your Trusted Partners</h2>
+                <p class="text-xl leading-relaxed text-gray-300">
+                    At <span class="font-bold text-white">MGA JunkRemoval LLC</span>, we are a family-owned, HUB Approved business built on hard work and integrity.
+                </p>
+                <p class="text-gray-400">
+                    Based in <span class="text-white font-bold">Pearland</span>, we handle all the heavy lifting and responsible disposal in our 6x10 trailer across Houston and surrounding areas.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                    <div class="flex items-center space-x-3 bg-gray-800 p-4 rounded-xl border border-gray-700">
+                        <span class="text-lime-500 text-2xl">✓</span>
+                        <span class="font-bold uppercase text-xs">Family Owned</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-gray-800 p-4 rounded-xl border border-gray-700">
+                        <span class="text-lime-500 text-2xl">✓</span>
+                        <span class="font-bold uppercase text-xs">HUB Approved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="partnerships" class="py-20 bg-white px-4 border-t border-gray-100">
     <div class="container mx-auto max-w-6xl">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -269,49 +300,6 @@ function prepareEmailWithPhotos() {
     window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
 }
 </script>
-   <section id="about" class="py-16 md:py-24 px-4">
-        <div id="photo-gallery-background">
-            <img src="2.jpg" style="opacity:1"><img src="4.jpg"><img src="1.jpg"><img src="3.jpg">
-        </div>
-        <div id="about-overlay"></div>
-        <div id="about-content" class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-lime-500">Your Trusted Partners in Reclaiming Your Space</h2>
-            
-            <div class="space-y-6 text-lg md:text-xl leading-relaxed text-gray-100 font-medium text-pretty">
-                <p>
-    At <span class="font-bold text-lime-500">MGA JunkRemoval LLC</span>, we are more than just a hauling service; we are a family-owned and <span class="text-white border-b border-lime-500">fully licensed and insured</span> business built on the values of hard work, integrity, and community service. Based in the heart of Texas, we have dedicated ourselves to helping homeowners and businesses in Houston, Pearland, and surrounding areas transform cluttered environments into clean, functional spaces with professional legal backing.
-</p>
-                
-                <p>
-                    We understand that clearing out a property can be overwhelming. Whether it’s a garage filled with years of memories, debris from a renovation, or old appliances taking up room, our mission is to make the process completely stress-free. We provide a professional, full-service experience where our team handles all the heavy lifting, loading, and responsible disposal.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
-                    <div class="bg-black bg-opacity-40 backdrop-blur-sm p-4 rounded-xl border border-lime-500/30">
-                        <h4 class="font-bold text-lime-500 mb-2">Reliability</h4>
-                        <p class="text-sm">We show up on time and ready to work.</p>
-                    </div>
-                    <div class="bg-black bg-opacity-40 backdrop-blur-sm p-4 rounded-xl border border-lime-500/30">
-                        <h4 class="font-bold text-lime-500 mb-2">Transparency</h4>
-                        <p class="text-sm">No hidden fees. Honest, upfront pricing.</p>
-                    </div>
-                    <div class="bg-black bg-opacity-40 backdrop-blur-sm p-4 rounded-xl border border-lime-500/30">
-                        <h4 class="font-bold text-lime-500 mb-2">Professionalism</h4>
-                        <p class="text-sm">A respectful crew that treats your property as their own.</p>
-                    </div>
-                </div>
-
-                <p>
-                    We believe in doing our part for the planet. We sort through every load to identify items that can be donated to local charities or recycled, minimizing waste and giving back to the community that has supported us.
-                </p>
-
-                <p class="text-2xl font-bold text-lime-500 italic mt-8">
-                    "Big or small, we haul it all. Let our family take care of yours!"
-                </p>
-            </div>
-        </div>
-    </section>
-
  <section id="reviews" class="py-16 bg-gray-50 border-t">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
@@ -406,15 +394,7 @@ function prepareEmailWithPhotos() {
         menuBtn.addEventListener('click', () => navLks.classList.toggle('active'));
 
         // Galería About Us
-        const imgs = document.querySelectorAll('#photo-gallery-background img');
-        let idx = 0;
-        if(imgs.length > 0) imgs[0].style.opacity = '1';
-        setInterval(() => {
-            imgs[idx].style.opacity = '0';
-            idx = (idx + 1) % imgs.length;
-            imgs[idx].style.opacity = '1';
-        }, 5000);
-    </script>
+          </script>
 <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         (function(){
@@ -425,14 +405,5 @@ function prepareEmailWithPhotos() {
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
