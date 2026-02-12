@@ -417,8 +417,27 @@ function prepareEmailWithPhotos() {
         s0.parentNode.insertBefore(s1,s0);
         })();
     </script>
+     <script>
+    let currentImgIndex = 0;
+    const images = document.querySelectorAll('.carousel-img');
+    
+    function changeImage() {
+        // Ocultar imagen actual
+        images[currentImgIndex].style.opacity = '0';
+        
+        // Calcular siguiente índice
+        currentImgIndex = (currentImgIndex + 1) % images.length;
+        
+        // Mostrar siguiente imagen
+        images[currentImgIndex].style.opacity = '1';
+    }
+
+    // Cambiar cada 3000ms (3 segundos)
+    setInterval(changeImage, 3000);
+</script>
 </body>
 </html>
+
 
 
 
