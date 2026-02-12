@@ -401,42 +401,45 @@ function prepareEmailWithPhotos() {
         // Tu config de Firebase...
     </script>
 
-    <script>
+ <script>
         // Menu Móvil
         const menuBtn = document.getElementById('menu-button');
         const navLks = document.getElementById('nav-links');
-        menuBtn.addEventListener('click', () => navLks.classList.toggle('active'));
+        if(menuBtn) {
+            menuBtn.addEventListener('click', () => navLks.classList.toggle('active'));
+        }
 
-        // Galería About Us
-          </script>
-<script type="text/javascript">
+        // Carrusel About Us
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentImgIndex = 0;
+            const images = document.querySelectorAll('.carousel-img');
+            
+            if(images.length > 0) {
+                function changeImage() {
+                    // Ocultar imagen actual
+                    images[currentImgIndex].style.opacity = '0';
+                    // Calcular siguiente índice
+                    currentImgIndex = (currentImgIndex + 1) % images.length;
+                    // Mostrar siguiente imagen
+                    images[currentImgIndex].style.opacity = '1';
+                }
+                // Cambiar cada 3 segundos
+                setInterval(changeImage, 3000);
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true; s1.src='https://embed.tawk.to/6959f2cdafb7451974fa689c/1je3losr9'; s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true; s1.src='https://embed.tawk.to/6959f2cdafb7451974fa689c/1je3losr9'; s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
         })();
     </script>
-     <script>
-    let currentImgIndex = 0;
-    const images = document.querySelectorAll('.carousel-img');
-    
-    function changeImage() {
-        // Ocultar imagen actual
-        images[currentImgIndex].style.opacity = '0';
-        
-        // Calcular siguiente índice
-        currentImgIndex = (currentImgIndex + 1) % images.length;
-        
-        // Mostrar siguiente imagen
-        images[currentImgIndex].style.opacity = '1';
-    }
-
-    // Cambiar cada 3000ms (3 segundos)
-    setInterval(changeImage, 3000);
-</script>
 </body>
 </html>
+
 
 
 
