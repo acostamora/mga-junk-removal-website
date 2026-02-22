@@ -34,8 +34,13 @@
             .nav-menu.active { display: flex; }
         }
         #about { position: relative; overflow: hidden; color: white; }
-        .animate-pulse-green { animation: pulse-green 2s infinite ease-in-out; }
+        #photo-gallery-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        #photo-gallery-background img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        #about-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1; }
+        #about-content { position: relative; z-index: 2; }
         @keyframes pulse-green { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .animate-pulse-green { animation: pulse-green 2s infinite ease-in-out; }
+        .hero-slide { transition: opacity 1s ease-in-out; }
     </style>
 </head>
 <body class="text-gray-800">
@@ -47,11 +52,13 @@
                     <img src="logo-mga.jpg" alt="MGA JunkRemoval Logo" class="h-20 md:h-32 w-auto object-contain drop-shadow-lg">
                 </a>
             </div>
+
             <div class="md:hidden">
                 <button id="menu-button" class="text-gray-900 focus:outline-none p-2 bg-gray-100 rounded-lg">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
+
             <div id="nav-links" class="nav-menu md:flex md:items-center space-x-0 md:space-x-8">
                 <a href="#services" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-bold">Our Services</a>
                 <a href="#about" class="block py-2 md:py-0 text-gray-700 hover:text-lime-500 font-bold">About Us</a>
@@ -63,7 +70,7 @@
     </nav>
 
     <header class="relative h-[550px] md:h-[650px] overflow-hidden rounded-b-[3rem] text-white">
-        <div class="absolute inset-0 z-10">
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out z-10 hero-slide" id="slide1">
             <div class="absolute inset-0 bg-black/50 z-10"></div>
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('truck and trailer.jpg');"></div>
             <div class="relative z-20 h-full container mx-auto px-4 flex flex-col justify-center items-center text-center">
@@ -79,6 +86,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 hero-slide" id="slide2">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695e9bd393a15929265407d9/e29305577_MGAantesydespues.png');"></div>
+            <div class="relative z-20 h-full container mx-auto px-4 flex flex-col justify-center items-center text-center">
+                <div class="bg-lime-500 text-gray-900 p-10 rounded-[2.5rem] max-w-lg shadow-2xl border-8 border-white/20">
+                    <h2 class="text-4xl md:text-5xl font-black mb-4 italic leading-none uppercase">MGA Junk Removal</h2>
+                    <p class="text-xl font-bold mb-8">Your #1 Choice in Pearland & Houston. Fast, Friendly, and Reliable.</p>
+                    <a href="tel:3468038094" class="bg-gray-900 text-white py-4 px-10 rounded-2xl font-black text-lg hover:bg-black transition-all">CALL NOW</a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <section id="about" class="py-20 bg-gray-900 text-white overflow-hidden">
@@ -87,7 +105,7 @@
                 <div class="lg:w-1/2">
                     <div class="relative group">
                         <div class="absolute -top-4 -left-4 w-full h-full border-4 border-lime-500 rounded-3xl"></div>
-                        <div class="relative z-10 rounded-3xl shadow-2xl overflow-hidden h-[450px] w-full bg-gray-800">
+                        <div class="relative z-10 rounded-3xl shadow-2xl overflow-hidden min-h-[300px] h-[450px] w-full bg-gray-800">
                             <div id="carousel-container" class="relative w-full h-full">
                                 <img src="A1.jpg" class="carousel-img absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000">
                                 <img src="A2.jpg" class="carousel-img absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
@@ -106,134 +124,191 @@
                 <div class="lg:w-1/2 space-y-6">
                     <h2 class="text-4xl md:text-5xl font-black text-lime-500 italic uppercase">Your Trusted Partners</h2>
                     <p class="text-xl leading-relaxed text-gray-300">At <span class="font-bold text-white">MGA JunkRemoval LLC</span>, we are a family-owned, HUB Approved business built on hard work and integrity.</p>
-                    <p class="text-gray-400">Based in <span class="text-white font-bold">Pearland</span>, we handle all the heavy lifting in our 6x10 trailer across Houston and surrounding areas.</p>
+                    <p class="text-gray-400">Based in <span class="text-white font-bold">Pearland</span>, we handle all the heavy lifting and responsible disposal in our 6x10 trailer across Houston and surrounding areas.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                         <div class="flex items-center space-x-3 bg-gray-800 p-4 rounded-xl border border-gray-700">
-                            <span class="text-lime-500 text-2xl">✓</span>
-                            <span class="font-bold uppercase text-xs">Family Owned</span>
+                            <span class="text-lime-500 text-2xl">✓</span><span class="font-bold uppercase text-xs">Family Owned</span>
                         </div>
                         <div class="flex items-center space-x-3 bg-gray-800 p-4 rounded-xl border border-gray-700">
-                            <span class="text-lime-500 text-2xl">✓</span>
-                            <span class="font-bold uppercase text-xs">HUB Approved</span>
+                            <span class="text-lime-500 text-2xl">✓</span><span class="font-bold uppercase text-xs">HUB Approved</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partnerships" class="py-20 bg-white px-4 border-t border-gray-100">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img src="business-partner.jpg" alt="MGA Junk Removal Professional Partner" class="w-full h-[500px] object-cover">
+                </div>
+                <div class="bg-gray-50 border-2 border-dashed border-lime-500 p-8 rounded-3xl relative">
+                    <div class="absolute -top-5 left-8 bg-gray-900 text-white px-6 py-2 rounded-lg font-bold">Become a Professional Partner</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-4">For Property Managers & Realtors</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Are you a Property Manager, Senior Living Director, or Realtor? Contact us for our exclusive partner rates and priority emergency dispatch.</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-6 text-center">
+                        <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Dedicated Partner Line</p>
+                        <a href="tel:3468038094" class="text-3xl font-black text-lime-600 hover:text-lime-700 transition">346-803-8094</a>
+                    </div>
+                    <a href="sms:+13468038094" class="block text-center border-2 border-gray-900 text-gray-900 font-bold py-3 px-6 rounded-xl hover:bg-gray-900 hover:text-white transition duration-300 uppercase">Get a Partner Estimate</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="services" class="py-20 bg-white px-4">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-black mb-16 uppercase italic">Our Services</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-black text-center mb-16 uppercase italic">Our Services</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Furniture & Appliance Removal.jpg" alt="Furniture" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <img src="Furniture & Appliance Removal.jpg" alt="Furniture removal" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-bold mb-2">Furniture & Appliances</h3>
-                    <p class="text-gray-600">Fast removal in <b>Pearland, Houston, and Friendswood</b>.</p>
+                    <p class="text-gray-600">Fast removal of couches, mattresses, and appliances for homes in Pearland, Houston, and Friendswood.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" alt="Cleanouts" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <img src="Garage, Basement, Storage Units & Attic Cleanouts.jpg" alt="Garage cleanouts" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-bold mb-2">Full Cleanouts</h3>
-                    <p class="text-gray-600">Garages and estates in <b>Houston and Sugar Land</b>.</p>
+                    <p class="text-gray-600">Expert garage, attic, and estate clearing services throughout Houston, Sugar Land, and Missouri City.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Construction Debris Removal.jpg" alt="Construction" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <img src="Construction Debris Removal.jpg" alt="Construction debris" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-bold mb-2">Construction Debris</h3>
-                    <p class="text-gray-600">Waste removal in <b>Pearland, Alvin, and Manvel</b>.</p>
+                    <p class="text-gray-600">We haul away renovation waste, wood, and drywall in Pearland, Alvin, and Manvel areas.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Yard Waste & Green Debris Removal.jpg" alt="Yard" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <img src="Yard Waste & Green Debris Removal.jpg" alt="Yard waste" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-bold mb-2">Yard & Green Debris</h3>
-                    <p class="text-gray-600">Storm debris in <b>Missouri City and Pasadena</b>.</p>
+                    <p class="text-gray-600">Removing branches, storm debris, and landscaping waste in Missouri City and Pearland.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
                     <img src="Electronics Waste (E-Waste) Disposal.jpg" alt="E-waste" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-bold mb-2">E-Waste Disposal</h3>
-                    <p class="text-gray-600">Recycling for <b>Houston and Med Center</b>.</p>
+                    <p class="text-gray-600">Responsible electronics recycling for Houston and Medical Center businesses.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-300">
-                    <img src="Special Hazardous Items Removal.jpg" alt="Special" class="mx-auto mb-4 w-24 h-24 rounded-lg">
+                    <img src="Special Hazardous Items Removal.jpg" alt="Special items" class="mx-auto mb-4 w-24 h-24 rounded-lg">
                     <h3 class="text-xl font-bold mb-2">Special Item Hauling</h3>
-                    <p class="text-gray-600">Bulky items in <b>Pearland and Clear Lake</b>.</p>
+                    <p class="text-gray-600">Professional handling of bulky or special items in Pearland, Houston, and Clear Lake.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-gray-50 px-4">
-        <div class="container mx-auto max-w-4xl">
-            <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100">
-                <h3 class="text-3xl font-black text-gray-900 mb-6 uppercase italic text-center">Get a Free Estimate</h3>
-                <div class="space-y-4">
-                    <input type="text" id="name" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="Full Name">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="tel" id="phone" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="Phone Number">
-                        <input type="text" id="address" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="Address / City">
+    <section id="how-it-works" class="py-20 bg-gray-50 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 italic uppercase">How It Works</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+                <div class="space-y-12">
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gray-900 text-lime-400 rounded-2xl flex items-center justify-center font-black text-2xl shadow-xl">01</div>
+                        <div><h3 class="text-2xl font-bold mb-2">Fill the Form</h3><p class="text-gray-600">Enter your contact info and the address.</p></div>
                     </div>
-                    <textarea id="message" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="What do you need removed?"></textarea>
-                    <button onclick="prepareEmailWithPhotos()" class="w-full bg-lime-500 hover:bg-lime-600 text-gray-900 font-black py-5 rounded-2xl text-xl uppercase italic">Next: Attach Photos & Send</button>
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gray-900 text-lime-400 rounded-2xl flex items-center justify-center font-black text-2xl shadow-xl">02</div>
+                        <div><h3 class="text-2xl font-bold mb-2">Attach Photos</h3><p class="text-gray-600">Tap the paperclip icon in your email to send photos.</p></div>
+                    </div>
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gray-900 text-lime-400 rounded-2xl flex items-center justify-center font-black text-2xl shadow-xl">03</div>
+                        <div><h3 class="text-2xl font-bold mb-2">Get Your Quote</h3><p class="text-gray-600">We'll reply with a fair price and schedule your pickup.</p></div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100">
+                    <h3 class="text-2xl font-black text-gray-900 mb-6 uppercase italic">Free Estimate Request</h3>
+                    <div class="space-y-4">
+                        <input type="text" id="name" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="Full Name">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="Phone">
+                            <input type="text" id="address" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="Address / City">
+                        </div>
+                        <textarea id="message" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="Description..."></textarea>
+                        <button onclick="prepareEmailWithPhotos()" class="w-full bg-lime-500 hover:bg-lime-600 text-gray-900 font-black py-5 rounded-2xl text-xl uppercase italic">Next: Attach Photos & Send</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="reviews" class="py-20 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-black mb-8 uppercase italic">What Our Clients Say</h2>
-            <div class="max-w-6xl mx-auto bg-gray-50 p-4 rounded-[2.5rem] shadow-inner mb-12">
+    <section id="reviews" class="py-20 bg-gray-50 border-t">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12 uppercase italic">What Our Clients Say</h2>
+            <div class="max-w-6xl mx-auto bg-white p-4 md:p-8 rounded-[2.5rem] shadow-xl mb-12">
                 <div id="featurable-5d07d2bb-7b16-4cfc-b80e-55936d850198" data-featurable-async></div>
                 <script src="https://featurable.com/assets/bundle.js" defer charset="UTF-8"></script>
             </div>
-            <a href="https://search.google.com/local/writereview?placeid=ChIJT8f7U3S-QIYRs6G_C00q1gY" target="_blank" class="inline-flex items-center space-x-2 text-gray-900 font-bold hover:text-lime-600">
-                <span>Leave us a review on Google</span>
-                <svg class="w-5 h-5 text-lime-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3.03 17.385l-2.03-3.15-2.03 3.15h-2.115l3.14-4.83-2.925-4.5h2.155l1.83 2.82 1.83-2.82h2.145l-2.94 4.515 3.165 4.815h-2.225z"/></svg>
-            </a>
+            <div class="text-center">
+                <a href="https://search.google.com/local/writereview?placeid=ChIJT8f7U3S-QIYRs6G_C00q1gY" target="_blank" class="inline-flex items-center space-x-2 text-gray-900 font-bold hover:text-lime-600">
+                    <span>Leave us a review on Google</span>
+                </a>
+            </div>
         </div>
     </section>
 
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
             <div>
-                <h4 class="text-2xl font-black text-lime-400 italic uppercase mb-3">MGA Junk Removal LLC</h4>
-                <p class="text-gray-400 text-sm">Professional, reliable, and HUB Approved serving Pearland & Houston.</p>
+                <h4 class="text-2xl font-black text-lime-400 italic mb-3">MGA Junk Removal LLC</h4>
+                <p class="text-gray-400 text-sm">Professional, reliable, and HUB Approved. Pearland, Houston, and Sugar Land.</p>
             </div>
             <div>
-                <h4 class="text-sm font-bold mb-4 uppercase text-gray-300">Service Areas</h4>
-                <p class="text-gray-400 text-xs leading-loose">PEARLAND • HOUSTON • SUGAR LAND • MISSOURI CITY • FRIENDSWOOD • ALVIN • PASADENA • KATY • MED CENTER • CLEAR LAKE</p>
+                <h4 class="text-sm font-bold mb-4 uppercase">Service Areas</h4>
+                <ul class="text-gray-400 text-xs grid grid-cols-2 gap-2 uppercase">
+                    <li>📍 Pearland, TX</li><li>📍 Houston</li><li>📍 Sugar Land</li><li>📍 Missouri City</li><li>📍 Friendswood</li><li>📍 Alvin</li><li>📍 Pasadena</li><li>📍 Katy</li>
+                </ul>
             </div>
             <div>
-                <h4 class="text-sm font-bold mb-4 uppercase text-gray-300">Connect With Us</h4>
+                <h4 class="text-sm font-bold mb-4 uppercase">Connect With Us</h4>
                 <div class="flex space-x-6 mb-6">
-                    <a href="https://www.instagram.com/mgajunkremoval" target="_blank" class="text-gray-400 hover:text-lime-500">Instagram</a>
                     <a href="https://www.facebook.com/MGAJunkremoval" target="_blank" class="text-gray-400 hover:text-lime-500">Facebook</a>
-                    <a href="https://www.tiktok.com/@mgajunkremoval" target="_blank" class="text-gray-400 hover:text-lime-500">TikTok</a>
+                    <a href="https://www.instagram.com/mgajunkremoval" target="_blank" class="text-gray-400 hover:text-lime-500">Instagram</a>
+                    <a href="https://www.tiktok.com/@mgajunkremoval" target="_blank" class="text-gray-400 hover:text-lime-500 font-bold">TikTok</a>
                 </div>
-                <p class="text-lime-400 font-bold">346-803-8094</p>
+                <p class="text-lime-400 font-bold">Call: 346-803-8094</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu
-        document.getElementById('menu-button').onclick = () => document.getElementById('nav-links').classList.toggle('active');
+        // MENU MOBILE
+        const menuBtn = document.getElementById('menu-button');
+        const navLks = document.getElementById('nav-links');
+        if(menuBtn) menuBtn.onclick = () => navLks.classList.toggle('active');
 
-        // Carrusel
-        let current = 0;
-        const imgs = document.querySelectorAll('.carousel-img');
+        // HERO SLIDER (CAMBIO CADA 5 SEGUNDOS)
+        let slideIndex = 1;
         setInterval(() => {
-            imgs[current].style.opacity = 0;
-            current = (current + 1) % imgs.length;
-            imgs[current].style.opacity = 1;
-        }, 3000);
+            document.getElementById('slide1').style.opacity = slideIndex ? 0 : 1;
+            document.getElementById('slide2').style.opacity = slideIndex ? 1 : 0;
+            slideIndex = !slideIndex;
+        }, 5000);
 
-        // Email
+        // CARRUSEL ABOUT US
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentImgIndex = 0;
+            const images = document.querySelectorAll('.carousel-img');
+            if(images.length > 0) {
+                setInterval(() => {
+                    images[currentImgIndex].style.opacity = '0';
+                    currentImgIndex = (currentImgIndex + 1) % images.length;
+                    images[currentImgIndex].style.opacity = '1';
+                }, 3000);
+            }
+        });
+
+        // FORMULARIO EMAIL
         function prepareEmailWithPhotos() {
             const name = document.getElementById('name').value;
-            const addr = document.getElementById('address').value;
-            const msg = document.getElementById('message').value;
-            const body = encodeURIComponent(`ATTACH PHOTOS TO THIS EMAIL\n\nName: ${name}\nAddress: ${addr}\nMessage: ${msg}`);
-            window.location.href = `mailto:acosta.mora@gmail.com?subject=Quote Request ${addr}&body=${body}`;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const message = document.getElementById('message').value;
+            const subject = encodeURIComponent("Quote Request: Junk Removal at " + address);
+            const body = encodeURIComponent("Name: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\n\nDescription: "+message);
+            window.location.href = "mailto:acosta.mora@gmail.com?subject=" + subject + "&body=" + body;
         }
     </script>
 </body>
 </html>
+
